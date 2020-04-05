@@ -1,0 +1,30 @@
+body{
+    height: 100vh;
+}
+
+.view-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.view-content {
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.view--toolbar {
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 0 0 auto;
+    background-color: #333;
+    padding: 0;
+}
+
+.sidebar--expanded {
+    width: 230px !important;
+}
