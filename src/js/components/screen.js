@@ -16,8 +16,9 @@ Vue.component('screen-view', {
             </b-button-toolbar>
         </b-navbar-nav>
     </b-navbar>
-    <div class="view-content container-fluid">
-        <slot v-bind:entity="entity"></slot>
+    <div class="view-content">
+        <slot v-bind:entity="entity">
+        </slot>
     </div>
 </div>`,
     props: {
