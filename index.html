@@ -25,20 +25,20 @@
                 <h2>Basic Controls</h2>
 
                 <h3>Input field</h3>
-                <input-field label="Text Input" type="text" size="sm"></input-field>
-                <input-field label="Number Input" type="number" size="sm"></input-field>
-                <input-field label="Password Input" type="password" size="sm"></input-field>
+                <app-input label="Text Input" type="text" size="sm"></app-input>
+                <app-input label="Number Input" type="number" size="sm"></app-input>
+                <app-input label="Password Input" type="password" size="sm"></app-input>
                 <h4>Input with error</h4>
-                <input-field label="Name" type="text" size="sm" :is-valid="false" error="Missing field"></input-field>
+                <app-input label="Name" type="text" size="sm" :is-valid="false" error="Missing field"></app-input>
                 <h2>Screen Controls</h2>
                 <div style="width: 100%; height: 500px;">
                     <screen-view @new="screenNew" @cancel="screenCancel" @save="screenSave">
                         <template v-slot:default="data">
                             <div class="col-6">
-                                <input-field label="Name" type="text" size="sm" v-model="data.entity.name"></input-field>
+                                <app-input label="Name" type="text" size="sm" v-model="data.entity.name"></app-input>
                             </div>
                             <div class="col-6">
-                                <input-field label="Last Name" type="text" size="sm" v-model="data.entity.latname"></input-field>
+                                <app-input label="Last Name" type="text" size="sm" v-model="data.entity.latname"></app-input>
                             </div>
                         </template>
                         <template v-slot:custom-toolbar>
