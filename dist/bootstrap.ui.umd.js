@@ -3,6 +3,19 @@
     factory();
 }((function () { 'use strict';
 
+    Vue.component('app-form', {
+        template: `<b-form @submit="submit" ref="form">
+        <slot><slot>
+    </b-form>`,
+        methods: {
+            submit: function (ev) {
+                ev.preventDefault();
+                console.log(this.$refs['form']);
+                this.$emit('submitted');
+            }
+        }
+    });
+
     Vue.component('app-input', {
         template: `<b-form-group :label="label">
         <b-form-input :type="type" :state="isValid" :size="size" v-model="value"></b-form-input>
