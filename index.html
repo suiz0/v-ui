@@ -23,8 +23,13 @@
             </b-navbar>
             <div class="view-content view-content--sidebar mx-3">
                 <h2>Basic Controls</h2>
+
                 <h3>Input field</h3>
-                <input-field label="Name" type="text" size="sm" :is-valid="false"></input-field>
+                <input-field label="Text Input" type="text" size="sm"></input-field>
+                <input-field label="Number Input" type="number" size="sm"></input-field>
+                <input-field label="Password Input" type="password" size="sm"></input-field>
+                <h4>Input with error</h4>
+                <input-field label="Name" type="text" size="sm" :is-valid="false" error="Missing field"></input-field>
                 <h2>Screen Controls</h2>
                 <div style="width: 100%; height: 500px;">
                     <screen-view @new="screenNew" @cancel="screenCancel" @save="screenSave">
