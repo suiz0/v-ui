@@ -39,6 +39,24 @@
         }
     });
 
+    Vue.component('app-toolbar', {
+        template: `<b-navbar :variant="variant" :type="type">
+        <b-container v-show="isFixed">
+            <b-navbar-brand><slot name="brand">App Toolbar</slot></b-navbar-brand>
+            <slot></slot>
+        </b-container>
+        <template v-show="!isFixed">
+            <b-navbar-brand><slot name="brand">App Toolbar</slot></b-navbar-brand>
+            <slot></slot>
+        </template>
+    </b-navbar>`,
+        props: {
+            variant: { type: String, default: 'dark' },
+            type: { type: String, default: 'dark' },
+            isFixed: { type: Boolean, default: false }
+        },
+    });
+
     Vue.component('screen-view', {
         template: `<div class="view-container view--toolbar">
     <b-navbar toggleable="lg" type="dark" variant="primary">
