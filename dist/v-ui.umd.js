@@ -4,14 +4,17 @@
 }((function () { 'use strict';
 
     Vue.component('app-form', {
-        template: `<b-form @submit="submit" ref="form">
-        <slot><slot>
+        template: `<b-form @submit="submit">
+        <slot><!-- default content--><slot>
     </b-form>`,
         methods: {
             submit: function (ev) {
-                ev.preventDefault();
-                console.log(this.$refs['form']);
-                this.$emit('submitted');
+                if (ev.target.checkValidity() === true) {
+                    this.$emit('submitted', ev);
+                }
+                else {
+                    ev.preventDefault();
+                }
             }
         }
     });
