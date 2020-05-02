@@ -1,4 +1,5 @@
-"use strict";
+import '../css/layout.css';
+import '../css/components.css';
 var app = new Vue({
     el: '#app',
     methods: {

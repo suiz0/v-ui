@@ -1,5 +1,8 @@
 declare var Vue: any;
 
+import '../css/layout.css';
+import '../css/components.css';
+
 var app = new Vue({
     el: '#app',
     methods: {
