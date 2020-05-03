@@ -41,11 +41,11 @@
 
     Vue.component('app-toolbar', {
         template: `<b-navbar :variant="variant" :type="type">
-        <b-container v-show="isFixed">
+        <b-container v-if="isFixed">
             <b-navbar-brand><slot name="brand">App Toolbar</slot></b-navbar-brand>
             <slot></slot>
         </b-container>
-        <template v-show="!isFixed">
+        <template v-else>
             <b-navbar-brand><slot name="brand">App Toolbar</slot></b-navbar-brand>
             <slot></slot>
         </template>
