@@ -1,4 +1,7 @@
-Vue.component('app-form', {
+declare var Vue:any;
+
+
+const AppForm = Vue.component('app-form', {
     template: `<b-form @submit="submit">
         <slot><!-- default content--><slot>
     </b-form>`,
@@ -13,3 +16,5 @@ Vue.component('app-form', {
         }
     }
 });
+
+export default AppForm;

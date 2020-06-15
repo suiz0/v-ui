@@ -1,4 +1,6 @@
-Vue.component('app-toolbar', {
+declare var Vue:any;
+
+const AppToolbar = Vue.component('app-toolbar', {
     template: `<b-navbar :variant="variant" :type="type">
         <b-container v-if="isFixed">
             <b-navbar-brand><slot name="brand">App Toolbar</slot></b-navbar-brand>
@@ -15,3 +17,5 @@ Vue.component('app-toolbar', {
         isFixed: {type: Boolean, default: false}
     },
 });
+
+export default AppToolbar;

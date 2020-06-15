@@ -1,4 +1,6 @@
-Vue.component('app-input', {
+declare var Vue:any;
+
+const AppInput = Vue.component('app-input', {
     template: `<b-form-group :label="label">
         <b-form-input :type="type" :state="isValid" :size="size" v-model="value"></b-form-input>
         <b-form-invalid-feedback :state="isValid">{{error}}</b-form-invalid-feedback>
@@ -17,3 +19,5 @@ Vue.component('app-input', {
         }
     }
 });
+
+export default AppInput;

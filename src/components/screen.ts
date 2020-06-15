@@ -1,6 +1,6 @@
 declare var Vue:any;
 
-Vue.component('screen-view', {
+const Screen = Vue.component('screen-view', {
     template: `<div class="view-container view--toolbar">
     <b-navbar toggleable="lg" type="dark" variant="primary">
         <b-navbar-brand tag="h1">{{title}}</b-navbar-brand>
@@ -43,3 +43,5 @@ Vue.component('screen-view', {
         }
     }
 });
+
+export default Screen;
