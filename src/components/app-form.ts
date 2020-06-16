@@ -1,4 +1,4 @@
-declare var Vue:any;
+declare let Vue:any;
 
 
 const AppForm = Vue.component('app-form', {

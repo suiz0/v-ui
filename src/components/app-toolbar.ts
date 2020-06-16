@@ -1,4 +1,4 @@
-declare var Vue:any;
+declare let Vue:any;
 
 const AppToolbar = Vue.component('app-toolbar', {
     template: `<b-navbar :variant="variant" :type="type">

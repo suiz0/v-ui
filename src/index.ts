@@ -6,7 +6,6 @@ import AppInput from './components/app-input';
 import './styles/layout.css';
 import './styles/components.css';
 
-
 export default {
     AppScreen: Screen,
     AppToolbar: AppToolbar,

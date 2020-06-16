@@ -1,4 +1,4 @@
-declare var Vue:any;
+declare let Vue:any;
 
 const Screen = Vue.component('screen-view', {
     template: `<div class="view-container view--toolbar">

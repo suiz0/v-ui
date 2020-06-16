@@ -1,4 +1,4 @@
-declare var Vue:any;
+declare let Vue:any;
 
 const AppInput = Vue.component('app-input', {
     template: `<b-form-group :label="label">
