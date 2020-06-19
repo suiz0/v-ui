@@ -7,8 +7,7 @@
     "start": "webpack-dev-server --open --config=webpack.config.dev.js",
     "build:debug": "webpack --config=webpack.config.dev.js",
     "lint": "eslint './src/**/*.{js,ts}' --quiet --fix",
-    "build": "tsc && rollup -c rollup.config.prod.js",
-    "build:clear": "rm -fr dist"
+    "build": "webpack --config=webpack.config.prod.js"
   },
   "author": "cesar iduarte",
   "license": "ISC",
