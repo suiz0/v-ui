@@ -35,20 +35,20 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: './public/index.html'
+            template: './showcase/index.html'
         }),
         new cpWebpackPlugin({
             patterns: [{
-                from: "./public/app.js",
-                to: "./"
+                from: "./showcase/app.js",
+                to: "./showcase/"
             },
             {
-                from: "./public/js/",
-                to: "./js/"
+                from: "./showcase/js/",
+                to: "./showcase/js/"
             },
             {
-                from: "./public/styles/",
-                to: "./styles/"
+                from: "./showcase/styles/",
+                to: "./showcase/styles/"
             }
             ]
         })
