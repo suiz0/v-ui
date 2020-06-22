@@ -1,0 +1,13 @@
+.sidebar {
+    flex: 0 0 auto;
+    padding: 5px;
+    width: 55px;
+}
+
+.sidebar--expanded {
+    width: 230px !important;
+}
+
+.sidebar .btn {
+    margin-top: 2px;
+}

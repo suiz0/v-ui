@@ -9,7 +9,7 @@
     <body>
         <div id='app' class="view-container view--toolbar">
             <app-toolbar>
-                <template v-slot:brand>Custom Brand</template>
+                <template v-slot:brand><a href="#" v-on:click="toggleSidebar"><span class="oi oi-menu"></span></a> Custom Brand</template>
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
                 <b-collapse id="nav-collapse" is-nav>
                     <b-navbar-nav class="ml-auto">
@@ -21,13 +21,17 @@
                 </b-collapse>
             </app-toolbar>
             <div class="view-content view-content--sidebar">
-                <app-sidebar>
+                <app-sidebar :is-collapsed="mainToolbar.collapsed">
                     <b-nav vertical>
                         <b-nav-item active><span class="oi oi-home"></span> Active</b-nav-item>
-                        <b-nav-item>Link</b-nav-item>
+                        <b-nav-item><span class="oi oi-beaker"></span> Link</b-nav-item>
                         <b-nav-item>Another Link</b-nav-item>
                         <b-nav-item disabled>Disabled</b-nav-item>
                       </b-nav>
+                      <template v-slot:collapsed>
+                        <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-home"></span></button>
+                        <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-beaker"></span></span></button>
+                      </template>
                 </app-sidebar>
                 <div class="view-content">
                     <h2>Basic Controls</h2>

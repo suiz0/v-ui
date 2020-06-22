@@ -20,15 +20,6 @@ body{
     flex-direction: column;
 }
 
-.sidebar {
-    flex: 0 0 auto;
-    padding: 0;
-}
-
-.sidebar--expanded {
-    width: 230px !important;
-}
-
 .view-content--sidebar {
     display: flex;
 }
