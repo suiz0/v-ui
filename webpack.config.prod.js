@@ -47,6 +47,10 @@ module.exports = {
             {
                 from: "./showcase/styles/",
                 to: "./showcase/styles/"
+            },
+            {
+                from: "./showcase/fonts/",
+                to: "./showcase/fonts/"
             }
             ]
         })
