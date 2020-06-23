@@ -19,7 +19,3 @@ body{
 .view--toolbar {
     flex-direction: column;
 }
-
-.view-content--sidebar {
-    display: flex;
-}
