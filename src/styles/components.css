@@ -1,6 +1,8 @@
 .sidebar {
     flex: 0 0 auto;
-    padding: 5px;
+}
+
+.sidebar--collapsed {
     width: 55px;
 }
 
@@ -8,6 +10,32 @@
     width: 230px !important;
 }
 
+.sidebar--collapsed .sidebar__content {
+    text-align: center;
+}
+
 .sidebar .btn {
     margin-top: 5px;
+}
+
+.sidebar__item {
+    border: none;
+    border-radius: 0px 0px !important;
+    background-color: transparent;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+}
+
+.sidebar__item__icon {
+    margin-right: 16px;
+}
+
+/*Themes*/
+.sidebar--dark .sidebar__item {
+    color: #fff !important;
+}
+
+.sidebar--dark .sidebar__item:hover {
+    background-color: #007bff;
 }

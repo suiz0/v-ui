@@ -1,5 +1,10 @@
 var app = new Vue({
     el: '#app',
+    data: {
+        mainToolbar: {
+            collapsed: true
+        }
+    },
     methods: {
         doSomething: function() {
             console.log("done something!");
@@ -12,6 +17,9 @@ var app = new Vue({
         },
         screenNew: function() {
             alert("New");
+        },
+        toggleSidebar() {
+            this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
         }
     }
 });

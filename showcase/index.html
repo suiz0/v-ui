@@ -22,16 +22,24 @@
             </app-toolbar>
             <div class="view-content view-container">
                 <app-sidebar :is-collapsed="mainToolbar.collapsed">
-                    <b-nav vertical>
-                        <b-nav-item active><span class="oi oi-home"></span> Active</b-nav-item>
-                        <b-nav-item><span class="oi oi-beaker"></span> Link</b-nav-item>
-                        <b-nav-item>Another Link</b-nav-item>
-                        <b-nav-item disabled>Disabled</b-nav-item>
-                      </b-nav>
-                      <template v-slot:collapsed>
-                        <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-home"></span></button>
-                        <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-beaker"></span></span></button>
-                      </template>
+                    <div class="list-group">
+                        <app-sidebar-item>
+                            <template v-slot:icon>
+                                <span class="oi oi-home"></span>
+                            </template>
+                            Home
+                        </app-sidebar-item>
+                        <app-sidebar-item>
+                            <template v-slot:icon>
+                                <span class="oi oi-beaker"></span>
+                            </template>
+                            Users
+                        </app-sidebar-item>
+                    </div>
+                    <template v-slot:collapsed>
+                    <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-home"></span></button>
+                    <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-beaker"></span></span></button>
+                    </template>
                 </app-sidebar>
                 <div class="view-content">
                     <h2>Basic Controls</h2>
