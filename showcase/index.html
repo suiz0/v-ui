@@ -55,7 +55,7 @@
                     </app-form>
                     <h2>Screen Controls</h2>
                     <div style="width: 100%; height: 500px;">
-                        <screen-view @new="screenNew" @cancel="screenCancel" @save="screenSave">
+                        <app-screen @new="screenNew" @cancel="screenCancel" @save="screenSave">
                             <template v-slot:default="data">
                                 <div class="col-6">
                                     <app-input label="Name" type="text" size="sm" v-model="data.entity.name"></app-input>
@@ -69,7 +69,7 @@
                                     <b-button @click="doSomething">New</b-button>
                                 </b-button-group>
                             </template>
-                        </screen-view>
+                        </app-screen>
                     </div>
                 </div>
             </div>
