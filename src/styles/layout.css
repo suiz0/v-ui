@@ -16,6 +16,6 @@ body{
     overflow-y: auto;
 }
 
-.view--toolbar {
+.view--with-toolbar {
     flex-direction: column;
 }

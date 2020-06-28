@@ -1,7 +1,7 @@
 declare let Vue:any;
 
 const Screen = Vue.component('app-screen', {
-    template: `<div class="view-container view--toolbar">
+    template: `<div class="view-container view--with-toolbar">
     <b-navbar toggleable="lg" type="dark" variant="primary">
         <b-navbar-brand tag="h1">{{title}}</b-navbar-brand>
         <b-navbar-nav class="ml-auto">
