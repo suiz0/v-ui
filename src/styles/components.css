@@ -32,6 +32,10 @@
 }
 
 /*Themes*/
+.sidebar--dark {
+    color: #fff !important;
+}
+
 .sidebar--dark .sidebar__item {
     color: #fff !important;
 }
