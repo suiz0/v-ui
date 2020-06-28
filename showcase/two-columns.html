@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="./styles/bootstrap-4.css"></link>
+        <link rel="stylesheet" type="text/css" href="./styles/bootstrap-vue.css"></link>
+        <link rel="stylesheet" type="text/css" href="./styles/open-icon-bootstrap.css"></link>
+    </head>
+    <body>
+        <div id='app' class="view-container">
+            <app-sidebar title="Navigation" :is-collapsed="false">
+                <div class="list-group">
+                    <app-sidebar-item v-on:click.native="showHome()">
+                        <template v-slot:icon>
+                            <span class="oi oi-home"></span>
+                        </template>
+                        Go Back
+                    </app-sidebar-item>
+                </div>
+            </app-sidebar>
+            <div class="view-content">
+                Contenido aqui
+            </div>
+        </div>
+        <script src="./js/vue.js"></script>
+        <script src="./js/bootstrap-vue.js"></script>
+        <script src="../v-ui.js"></script>
+        <script defer src="./app.js"></script>
+    </body>
+</html>

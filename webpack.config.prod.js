@@ -44,9 +44,14 @@ module.exports = {
                 from: "./showcase/js/",
                 to: "./showcase/js/"
             },
+            
             {
                 from: "./showcase/styles/",
                 to: "./showcase/styles/"
+            },
+            {
+                from: "./showcase/two-columns.html",
+                to: "./showcase/"
             },
             {
                 from: "./showcase/fonts/",

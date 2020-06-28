@@ -51,6 +51,10 @@ module.exports = {
                 to: "./showcase/styles/"
             },
             {
+                from: "./showcase/two-columns.html",
+                to: "./showcase/"
+            },
+            {
                 from: "./showcase/fonts/",
                 to: "./showcase/fonts/"
             }

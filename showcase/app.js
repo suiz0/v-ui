@@ -20,6 +20,13 @@ var app = new Vue({
         },
         toggleSidebar() {
             this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
+        },
+        showTwoColumnLayout() {
+            window.location.href="./showcase/two-columns.html";
+        },
+        showHome()
+        {
+            window.location.href="../index.html";
         }
     }
 });

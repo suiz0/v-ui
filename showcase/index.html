@@ -29,11 +29,11 @@
                             </template>
                             Home
                         </app-sidebar-item>
-                        <app-sidebar-item>
+                        <app-sidebar-item @click.native="showTwoColumnLayout()">
                             <template v-slot:icon>
                                 <span class="oi oi-beaker"></span>
                             </template>
-                            Users
+                            Two Columns
                         </app-sidebar-item>
                     </div>
                     <template v-slot:collapsed>

@@ -20,6 +20,9 @@ var app = new Vue({
         },
         toggleSidebar() {
             this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
+        },
+        showTwoColumnLayout() {
+            console.log("dadas");
         }
     }
 });
