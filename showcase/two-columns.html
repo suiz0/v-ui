@@ -10,7 +10,7 @@
         <div id='app' class="view-container">
             <app-sidebar title="Navigation" :is-collapsed="false">
                 <div class="list-group">
-                    <app-sidebar-item v-on:click.native="showHome()">
+                    <app-sidebar-item @clicked="showHome">
                         <template v-slot:icon>
                             <span class="oi oi-home"></span>
                         </template>

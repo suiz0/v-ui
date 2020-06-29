@@ -39,7 +39,7 @@ const Sidebar = Vue.component('app-sidebar', {
 
 
 const SidebarItem = Vue.component('app-sidebar-item', {
-    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="'text-' + variant">
+    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="'text-' + variant" v-on:click="clicked">
             <div class="sidebar__item__icon">
                 <slot name="icon">
                 </slot>
@@ -51,6 +51,11 @@ const SidebarItem = Vue.component('app-sidebar-item', {
         </div>`,
     props: {
         variant: {type: String, default: "primary"}
+    },
+    methods: {
+        clicked(){
+            this.$emit("clicked");
+        }
     }
 });
 
