@@ -2,8 +2,12 @@ declare let Vue: any;
 
 const Sidebar = Vue.component('app-sidebar', {
     template: `
-        <div class="sidebar" :class="['bg-' + variant, CSSStatus, 'sidebar--' + variant]">
-            <h3 class="ml-3" v-show="title.length>0">{{title}}</h3>
+        <div class="sidebar" :class="['bg-' + variant, CSSStatus, 'sidebar--' + variant, (title.length === 0) ? 'sidebar--no-title' : 'sidebar--with-title']">
+            <section class="sidebar__header">
+                <h5 class="ml-3 sidebar__title" v-show="title.length>0 && isExpanded">{{title}}</h5>
+                <slot name="header">
+                </slot>
+            </section>
             <section class="sidebar__content" v-show="isExpanded">
                 <slot>
                     Content here
@@ -14,11 +18,14 @@ const Sidebar = Vue.component('app-sidebar', {
                 &lt;C&gt;
                 </slot>
             </section>
+            <section class="sidebar__footer">
+            </section>
         </div>`,
     props: {
         title: {type: String, default: ""},
         variant: {type: String, default: "dark"},
-        isCollapsed: {type: Boolean, default: false}
+        isCollapsed: {type: Boolean, default: false},
+        showCollapse: {type: Boolean, default: false}
     },
     data () {
         return {
@@ -36,7 +43,6 @@ const Sidebar = Vue.component('app-sidebar', {
         }
     }
 });
-
 
 const SidebarItem = Vue.component('app-sidebar-item', {
     template: `<div class="sidebar__item list-group-item list-group-item-action" :class="'text-' + variant" v-on:click="clicked">

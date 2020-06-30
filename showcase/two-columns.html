@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id='app' class="view-container">
-            <app-sidebar title="Navigation" :is-collapsed="false">
+            <app-sidebar-extended title="Porduct - Desc" :is-collapsed="false">
                 <div class="list-group">
                     <app-sidebar-item @clicked="showHome">
                         <template v-slot:icon>
@@ -17,7 +17,14 @@
                         Go Back
                     </app-sidebar-item>
                 </div>
-            </app-sidebar>
+                <template v-slot:collapsed>
+                    <app-sidebar-item @clicked="showHome">
+                        <template v-slot:icon>
+                            <span class="oi oi-home"></span>
+                        </template>
+                    </app-sidebar-item>
+                </template>
+            </app-sidebar-extended>
             <div class="view-content">
                 Contenido aqui
             </div>

@@ -1,9 +1,25 @@
 .sidebar {
     flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
 }
 
 .sidebar--collapsed {
     width: 55px;
+}
+
+.sidebar--extended.sidebar--collapsed .sidebar__header, .sidebar--extended.sidebar--no-title .sidebar__header
+{
+    margin-top: 32px;
+}
+
+.sidebar--collapsed.sidebar--with-title .sidebar__content {
+    margin-top: 32px;
+}
+
+.sidebar--extended .sidebar__content {
+    margin-top: 0px !important;
 }
 
 .sidebar--expanded {
@@ -29,6 +45,10 @@
 
 .sidebar__item__icon {
     margin-right: 16px;
+}
+
+.sidebar__footer {
+    margin-top: auto;
 }
 
 /*Themes*/

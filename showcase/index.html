@@ -21,7 +21,7 @@
                 </b-collapse>
             </app-toolbar>
             <div class="view-content view-container">
-                <app-sidebar :is-collapsed="mainToolbar.collapsed">
+                <app-sidebar :is-collapsed="mainToolbar.collapsed" title="Menu App">
                     <div class="list-group">
                         <app-sidebar-item>
                             <template v-slot:icon>
@@ -37,8 +37,8 @@
                         </app-sidebar-item>
                     </div>
                     <template v-slot:collapsed>
-                    <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-home"></span></button>
-                    <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-beaker"></span></span></button>
+                        <button type="button" class="btn btn-primary sidebar__button"><span class="oi oi-home"></span></button>
+                        <button type="button" class="btn btn-primary sidebar__button" @click="showTwoColumnLayout"><span class="oi oi-beaker"></span></span></button>
                     </template>
                 </app-sidebar>
                 <div class="view-content">
