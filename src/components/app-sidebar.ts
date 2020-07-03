@@ -5,8 +5,6 @@ const Sidebar = Vue.component('app-sidebar', {
         <div class="sidebar" :class="['bg-' + variant, CSSStatus, 'sidebar--' + variant, (title.length === 0) ? 'sidebar--no-title' : 'sidebar--with-title']">
             <section class="sidebar__header">
                 <h5 class="ml-3 sidebar__title" v-show="title.length>0 && isExpanded">{{title}}</h5>
-                <slot name="header">
-                </slot>
             </section>
             <section class="sidebar__content" v-show="isExpanded">
                 <slot>

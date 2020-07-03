@@ -18,11 +18,7 @@
                     </app-sidebar-item>
                 </div>
                 <template v-slot:collapsed>
-                    <app-sidebar-item @clicked="showHome">
-                        <template v-slot:icon>
-                            <span class="oi oi-home"></span>
-                        </template>
-                    </app-sidebar-item>
+                    <b-button variant="dark" class="sidebar__button" @click="showHome"><span class="oi oi-home"></span></b-button>
                 </template>
             </app-sidebar-extended>
             <div class="view-content">

@@ -30,10 +30,6 @@
     text-align: center;
 }
 
-.sidebar .btn {
-    margin-top: 5px;
-}
-
 .sidebar__item {
     border: none;
     border-radius: 0px 0px !important;
@@ -41,6 +37,10 @@
     cursor: pointer;
     align-items: center;
     display: flex;
+}
+
+.sidebar__button {
+    margin: 0px 0px 5px 0px;
 }
 
 .sidebar__item__icon {
@@ -60,6 +60,6 @@
     color: #fff !important;
 }
 
-.sidebar--dark .sidebar__item:hover {
+.sidebar--dark .sidebar__item:hover, .sidebar--dark .sidebar__button:hover  {
     background-color: #007bff;
 }

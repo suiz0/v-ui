@@ -2,16 +2,15 @@ declare let Vue: any;
 
 const SidebarExtended = Vue.component('app-sidebar-extended', {
     template: `<app-sidebar :title="title" :is-collapsed="!isExpanded" class="sidebar--extended" :variant="variant">
-            <template v-slot:header>
-                <app-sidebar-item @clicked="toggle">
+                <app-sidebar-item @clicked="toggle" v-show="isExpanded">
                     <template v-slot:icon>
                         <span class="oi oi-menu"></span>
                     </template>
                 </app-sidebar-item>
-            </template>
             <slot>
             </slot>
             <template v-slot:collapsed>
+                <button v-show="!isExpanded" class="btn btn-dark sidebar__button" @click="toggle"><span class="oi oi-menu"></span></button>
                 <slot name="collapsed">
                 </slot>
             </template>
