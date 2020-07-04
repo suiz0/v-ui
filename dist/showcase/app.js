@@ -22,7 +22,11 @@ var app = new Vue({
             this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
         },
         showTwoColumnLayout() {
-            console.log("dadas");
+            window.location.href="./showcase/two-columns.html";
+        },
+        showHome()
+        {
+            window.location.href="../index.html";
         }
     }
 });
