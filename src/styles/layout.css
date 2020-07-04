@@ -11,7 +11,7 @@ body{
 }
 
 .view-content {
-    flex: 1 1 auto;
+    flex: 1 1 100vw;
     height: 100%;
     overflow-y: auto;
 }
