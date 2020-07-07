@@ -4,10 +4,10 @@ const Sidebar = Vue.component('app-sidebar', {
     template: `
         <div class="sidebar" :class="['bg-' + variant, CSSStatus, 'sidebar--' + variant, (title.length === 0) ? 'sidebar--no-title' : 'sidebar--with-title']">
             <section class="sidebar__header">
-                <h5 class="ml-3 sidebar__title" v-show="title.length>0 && isExpanded">{{title}}</h5>
+                <h5 class="sidebar__title" v-show="title.length>0 && isExpanded">{{title}}</h5>
             </section>
             <section class="sidebar__content" v-show="isExpanded">
-                <slot>
+                <slot :selected="selected" :setSelected="setSelected">
                     Content here
                 </slot>
             </section>
@@ -27,7 +27,8 @@ const Sidebar = Vue.component('app-sidebar', {
     },
     data () {
         return {
-            isExpanded: !this.isCollapsed
+            isExpanded: !this.isCollapsed,
+            selected: []
         }
     },
     watch: {
@@ -39,11 +40,19 @@ const Sidebar = Vue.component('app-sidebar', {
         CSSStatus() {
             return this.isExpanded ? "sidebar--expanded" : "sidebar--collapsed";
         }
+    },
+    methods: {
+        setSelected(item) {
+            this.selected.push(item);
+            Vue.nextTick(()=> {
+                this.selected.pop();
+            });
+        }
     }
 });
 
 const SidebarItem = Vue.component('app-sidebar-item', {
-    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="'text-' + variant" v-on:click="clicked">
+    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="['text-' + variant, isActive? 'sidebar__item--active': '']" v-on:click="clicked">
             <div class="sidebar__item__icon">
                 <slot name="icon">
                 </slot>
@@ -54,11 +63,27 @@ const SidebarItem = Vue.component('app-sidebar-item', {
             </div>
         </div>`,
     props: {
-        variant: {type: String, default: "primary"}
+        variant: {type: String, default: "primary"},
+        reset: {type: Boolean, default: false},
+        isSelected: {type: Boolean, default: false}
+    },
+    data() {
+        return {
+            isActive: this.isSelected
+        }
+    },
+    watch: {
+        reset(value) {
+            if(value)
+                this.isActive = false;
+        }
     },
     methods: {
-        clicked(){
-            this.$emit("clicked");
+        clicked() {
+            this.$emit("clicked", this);
+            Vue.nextTick(()=> {
+                this.isActive = true;
+            });
         }
     }
 });

@@ -22,23 +22,32 @@
             </app-toolbar>
             <div class="view-content view-container">
                 <app-sidebar :is-collapsed="mainToolbar.collapsed" title="Menu App">
-                    <div class="list-group">
-                        <app-sidebar-item>
-                            <template v-slot:icon>
-                                <span class="oi oi-home"></span>
-                            </template>
-                            Home
-                        </app-sidebar-item>
-                        <app-sidebar-item @clicked="showTwoColumnLayout">
-                            <template v-slot:icon>
-                                <span class="oi oi-beaker"></span>
-                            </template>
-                            Two Columns
-                        </app-sidebar-item>
-                    </div>
+                    <template v-slot="{selected, setSelected}">
+                        <div class="list-group">
+                            <app-sidebar-item :reset="selected.length > 0" @clicked="setSelected">
+                                <template v-slot:icon>
+                                    <span class="oi oi-home"></span>
+                                </template>
+                                Home
+                            </app-sidebar-item>
+                            <app-sidebar-item @clicked="showTwoColumnLayout">
+                                <template v-slot:icon>
+                                    <span class="oi oi-beaker"></span>
+                                </template>
+                                Two Columns
+                            </app-sidebar-item>
+                            <app-sidebar-item :reset="selected.length > 0" @clicked="setSelected">
+                                <template v-slot:icon>
+                                    <span class="oi oi-credit-card"></span>
+                                </template>
+                                Another entry
+                            </app-sidebar-item>
+                        </div>
+                    </template>
                     <template v-slot:collapsed>
                         <button type="button" class="btn btn-dark sidebar__button"><span class="oi oi-home"></span></button>
                         <button type="button" class="btn btn-dark sidebar__button"  @click="showTwoColumnLayout"><span class="oi oi-beaker"></span></button>
+                        <button type="button" class="btn btn-dark sidebar__button"><span class="oi oi-credit-card"></span></button>
                     </template>
                 </app-sidebar>
                 <div class="view-content">
