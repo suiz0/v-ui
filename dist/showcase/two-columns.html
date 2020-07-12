@@ -8,21 +8,9 @@
     </head>
     <body>
         <div id='app' class="view-container">
-            <app-sidebar-extended title="Porduct - Desc" :is-collapsed="false">
-                <div class="list-group">
-                    <app-sidebar-item @clicked="showHome">
-                        <template v-slot:icon>
-                            <span class="oi oi-home"></span>
-                        </template>
-                        Go Back
-                    </app-sidebar-item>
-                </div>
-                <template v-slot:collapsed>
-                    <b-button variant="dark" class="sidebar__button" @click="showHome"><span class="oi oi-home"></span></b-button>
-                </template>
-            </app-sidebar-extended>
+            <app-sidebar-extended title="Porduct - Desc" @item-selected="takeAction" :is-collapsed="false" :items="[{'description':'Home', 'icon': '<span class=&quot;oi oi-home&quot;></span>'}, {'description': 'Item 1', 'icon': '<span class=&quot;oi oi-beaker&quot;></span>'}]" />
             <div class="view-content">
-                Contenido aqui
+                <h1>Titulo 1</h1>
             </div>
         </div>
         <script src="./js/vue.js"></script>

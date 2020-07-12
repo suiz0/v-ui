@@ -28,8 +28,15 @@
     width: 300px !important;
 }
 
-.sidebar--collapsed .sidebar__content {
-    text-align: center;
+.sidebar__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar--collapsed .sidebar__content, .sidebar--collapsed .sidebar__footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sidebar__item {
@@ -65,6 +72,10 @@
 
 .sidebar--dark .sidebar__item {
     border-radius: .25rem !important;
+}
+
+.sidebar--dark .sidebar__button {
+    color: #fff !important;
 }
 
 .sidebar--dark .sidebar__item:hover, .sidebar--dark .sidebar__button:hover, .sidebar--dark .sidebar__item--active {

@@ -2,32 +2,49 @@ declare let Vue: any;
 
 const SidebarExtended = Vue.component('app-sidebar-extended', {
     template: `<app-sidebar :title="title" :is-collapsed="!isExpanded" class="sidebar--extended" :variant="variant">
-                <app-sidebar-item @clicked="toggle" v-show="isExpanded">
+            <div class="list-group">
+                <app-sidebar-item v-for="(item, index) in items" :is-selected="item==selected" :key="index" @clicked="itemClicked(item)">
                     <template v-slot:icon>
-                        <span class="oi oi-menu"></span>
+                        <span v-html="item.icon"></span>
                     </template>
+                    {{item.description}}
                 </app-sidebar-item>
-            <slot>
-            </slot>
+            </div>
+            <template v-slot:footer>
+                <button class="btn btn-dark sidebar__button sidebar__toggler" @click="toggle">
+                    <span class="oi oi-expand-right" v-show="isExpanded"></span>
+                    <span class="oi oi-expand-left" v-show="!isExpanded"></span>
+                </button>
+            </template>
             <template v-slot:collapsed>
-                <button v-show="!isExpanded" class="btn btn-dark sidebar__button" @click="toggle"><span class="oi oi-menu"></span></button>
-                <slot name="collapsed">
-                </slot>
+                <app-sidebar-button v-for="(item, index) in items" :is-selected="item==selected" v-html="item.icon" @clicked="itemClicked(item)">
+                </app-sidebar-button>
             </template>
         </app-sidebar>`,
     props: {
         title: {type: String, default: ""},
-        variant: {type: String, default: "dark"}
+        variant: {type: String, default: "dark"},
+        items: {type: Array, default: []}
     },
     data () {
         return {
-            isExpanded: false
+            isExpanded: false,
+            selected: null
         }
     },
     methods: {
         toggle()
         {
             this.isExpanded = !this.isExpanded;
+        },
+        itemClicked(item) 
+        {
+            this.$emit("item-selected", item);
+            this.setSelected(item);
+        },
+        setSelected(item) 
+        {
+            this.selected = item;
         }
     }
 });

@@ -24,6 +24,10 @@ var app = new Vue({
         showTwoColumnLayout() {
             window.location.href="./showcase/two-columns.html";
         },
+        takeAction(item) {
+            if (item.description.toLowerCase() === "home")
+                this.showHome();
+        },
         showHome()
         {
             window.location.href="../index.html";

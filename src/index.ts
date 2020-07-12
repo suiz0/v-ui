@@ -2,7 +2,7 @@ import Screen from './components/app-screen';
 import AppToolbar from './components/app-toolbar';
 import AppForm from './components/app-form';
 import AppInput from './components/app-input';
-import Sidebar, {SidebarItem} from './components/app-sidebar';
+import Sidebar, {SidebarItem, SidebarButton} from './components/app-sidebar';
 import SidebarExtended from './components/app-sidebar-extended';
 
 import './styles/layout.css';
@@ -15,5 +15,6 @@ export default {
     AppInput: AppInput,
     AppSidebar: Sidebar,
     AppSidebarItem: SidebarItem,
-    AppSidebarExtended: SidebarExtended
+    AppSidebarExtended: SidebarExtended,
+    AppSidebarButton: SidebarButton
 }

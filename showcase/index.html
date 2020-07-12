@@ -22,9 +22,9 @@
             </app-toolbar>
             <div class="view-content view-container">
                 <app-sidebar :is-collapsed="mainToolbar.collapsed" title="Menu App">
-                    <template v-slot="{selected, setSelected}">
+                    <template v-slot="{selectionChanged, setSelected}">
                         <div class="list-group">
-                            <app-sidebar-item :reset="selected.length > 0" @clicked="setSelected">
+                            <app-sidebar-item :reset="selectionChanged" @clicked="setSelected">
                                 <template v-slot:icon>
                                     <span class="oi oi-home"></span>
                                 </template>
@@ -36,7 +36,7 @@
                                 </template>
                                 Two Columns
                             </app-sidebar-item>
-                            <app-sidebar-item :reset="selected.length > 0" @clicked="setSelected">
+                            <app-sidebar-item :reset="selectionChanged" @clicked="setSelected">
                                 <template v-slot:icon>
                                     <span class="oi oi-credit-card"></span>
                                 </template>
@@ -44,10 +44,16 @@
                             </app-sidebar-item>
                         </div>
                     </template>
-                    <template v-slot:collapsed>
-                        <button type="button" class="btn btn-dark sidebar__button"><span class="oi oi-home"></span></button>
-                        <button type="button" class="btn btn-dark sidebar__button"  @click="showTwoColumnLayout"><span class="oi oi-beaker"></span></button>
-                        <button type="button" class="btn btn-dark sidebar__button"><span class="oi oi-credit-card"></span></button>
+                    <template v-slot:collapsed="{selectionChanged, setSelected}">
+                        <app-sidebar-button :reset="selectionChanged" @clicked="setSelected" class="btn-dark">
+                            <span class="oi oi-home"></span>
+                        </app-sidebar-button>
+                        <app-sidebar-button @clicked="showTwoColumnLayout">
+                            <span class="oi oi-beaker"></span>
+                        </app-sidebar-button>
+                        <app-sidebar-button :reset="selectionChanged" @clicked="setSelected" class="btn-dark">
+                            <span class="oi oi-credit-card"></span>
+                        </app-sidebar-button>
                     </template>
                 </app-sidebar>
                 <div class="view-content">
