@@ -1,6 +1,9 @@
 declare let Vue:any;
 
+import BaseMixing from '../mixins';
+
 const Screen = Vue.component('app-screen', {
+    mixins: [BaseMixing],
     template: `<div class="view-container view--with-toolbar">
     <b-navbar toggleable="lg" type="dark" variant="primary">
         <b-navbar-brand tag="h1">{{title}}</b-navbar-brand>
@@ -24,11 +27,12 @@ const Screen = Vue.component('app-screen', {
 </div>`,
     props: {
         title: {type: String, default: 'Screen'},
-        hideDefaultToolbar: {type: Boolean, default: false}
+        hideDefaultToolbar: {type: Boolean, default: false},
+        model: {type: Object, default: () => {}}
     },
     data() {
         return {
-            entity:{}
+            entity:{...this.model}
         };
     },
     methods: {

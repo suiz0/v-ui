@@ -3,6 +3,12 @@ var app = new Vue({
     data: {
         mainToolbar: {
             collapsed: true
+        },
+        User: {
+            name: 'User',
+            lastname: 'Test',
+            id: 1,
+
         }
     },
     methods: {
