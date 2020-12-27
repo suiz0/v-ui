@@ -22,21 +22,21 @@
             </app-toolbar>
             <div class="view-content view-container">
                 <app-sidebar :is-collapsed="mainToolbar.collapsed" title="Menu App">
-                    <template v-slot="{selectionChanged, setSelected}">
+                    <template>
                         <div class="list-group">
-                            <app-sidebar-item :reset="selectionChanged" @clicked="setSelected">
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='menu1' :is-selected="sidebar.menu1">
                                 <template v-slot:icon>
                                     <span class="oi oi-home"></span>
                                 </template>
                                 Home
                             </app-sidebar-item>
-                            <app-sidebar-item @clicked="showTwoColumnLayout">
+                            <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
                                 <template v-slot:icon>
                                     <span class="oi oi-beaker"></span>
                                 </template>
                                 Two Columns
                             </app-sidebar-item>
-                            <app-sidebar-item :reset="selectionChanged" @clicked="setSelected">
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='menu3' :is-selected="sidebar.menu3">
                                 <template v-slot:icon>
                                     <span class="oi oi-credit-card"></span>
                                 </template>
@@ -44,14 +44,14 @@
                             </app-sidebar-item>
                         </div>
                     </template>
-                    <template v-slot:collapsed="{selectionChanged, setSelected}">
-                        <app-sidebar-button :reset="selectionChanged" @clicked="setSelected" class="btn-dark">
+                    <template v-slot:collapsed>
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="menu1" :is-selected="sidebar.menu1" class="btn-dark">
                             <span class="oi oi-home"></span>
                         </app-sidebar-button>
-                        <app-sidebar-button @clicked="showTwoColumnLayout">
+                        <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
                             <span class="oi oi-beaker"></span>
                         </app-sidebar-button>
-                        <app-sidebar-button :reset="selectionChanged" @clicked="setSelected" class="btn-dark">
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="menu3" :is-selected="sidebar.menu3" class="btn-dark">
                             <span class="oi oi-credit-card"></span>
                         </app-sidebar-button>
                     </template>

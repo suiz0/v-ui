@@ -9,11 +9,23 @@ var app = new Vue({
             lastname: 'Test',
             id: 1,
 
+        },
+        sidebar: {
+            menu1: true,
+            menu2: false,
+            menu3: false
         }
     },
     methods: {
         doSomething: function() {
             console.log("done something!");
+        },
+        sidebarItemClicked: function(key) {
+            if(key!== 'menu1')
+                this.sidebar.menu1 = false;
+            
+            if(key!== 'menu3')
+                this.sidebar.menu3 = false;
         },
         screenSave: function(){
             alert("Save");

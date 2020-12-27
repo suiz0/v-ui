@@ -44,35 +44,24 @@ const Sidebar = Vue.component('app-sidebar', {
 });
 
 const SidebarButton = Vue.component('app-sidebar-button', {
-    template: `<button :class="['btn', 'sidebar__button', isActive? 'sidebar__item--active': '']" @click="clicked">
+    template: `<button :class="['btn', 'sidebar__button', isSelected? 'sidebar__item--active': '']" @click="clicked">
         <slot>
         </slot>
     </button>`,
-    data() {
-        return {
-            isActive: false
-        }
-    },
     props: {
+        id: {type: String, default: null},
+        variant: {type: String, default: "primary"},
         isSelected: {type: Boolean, default: false}
-    },
-    watch: {
-        isSelected(value) {
-            this.isActive = value;
-        }
     },
     methods: {
         clicked() {
-            this.$emit("clicked", this);
-            Vue.nextTick(()=> {
-                this.isActive = true;
-            });
+            this.$emit("clicked", this.id);
         }
     }
 });
 
 const SidebarItem = Vue.component('app-sidebar-item', {
-    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="['text-' + variant, isActive? 'sidebar__item--active': '']" v-on:click="clicked">
+    template: `<div class="sidebar__item list-group-item list-group-item-action" :class="['text-' + variant, isSelected? 'sidebar__item--active': '']" v-on:click="clicked">
             <div class="sidebar__item__icon">
                 <slot name="icon">
                 </slot>
@@ -83,27 +72,13 @@ const SidebarItem = Vue.component('app-sidebar-item', {
             </div>
         </div>`,
     props: {
+        id: {type: String, default: null},
         variant: {type: String, default: "primary"},
-        reset: {type: Boolean, default: false},
         isSelected: {type: Boolean, default: false}
-    },
-    data() {
-        return {
-            isActive: this.isSelected
-        }
-    },
-    watch: {
-        isSelected(value)
-        {
-            this.isActive = value;
-        }
     },
     methods: {
         clicked() {
-            this.$emit("clicked");
-            Vue.nextTick(()=> {
-                this.isActive = true;
-            });
+            this.$emit("clicked", this.id);
         }
     }
 });
