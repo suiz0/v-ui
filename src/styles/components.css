@@ -1,3 +1,7 @@
+.app-screen__content {
+    padding-top: 10px;
+}
+
 .sidebar {
     flex: 0 0 auto;
     display: flex;

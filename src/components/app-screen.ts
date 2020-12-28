@@ -20,7 +20,7 @@ const Screen = Vue.component('app-screen', {
             </b-button-toolbar>
         </b-navbar-nav>
     </b-navbar>
-    <div class="view-content">
+    <div class="view-content app-screen__content">
         <slot v-bind:entity="entity">
         </slot>
     </div>
