@@ -25,12 +25,12 @@ const SidebarExtended = Vue.component('app-sidebar-extended', {
         title: {type: String, default: ""},
         variant: {type: String, default: "dark"},
         items: {type: Array, default: []},
-        itemSelected: {type: Object, default: null}
+        selectedIndex: {type: Number, default: 0}
     },
     data () {
         return {
             isExpanded: false,
-            selected: this.itemSelected || null
+            selected: this.items ? this.items[this.selectedIndex] : null
         }
     },
     methods: {

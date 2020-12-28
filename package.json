@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-ui",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "a component library for building web app",
   "main": "index.js",
   "scripts": {

@@ -2,6 +2,8 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const cpWebpackPlugin = require("copy-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require('webpack');
+const package = require("./package.json");
 
 module.exports = {
     entry: "./src/index.ts",
@@ -34,6 +36,9 @@ module.exports = {
         new CleanWebpackPlugin(),
         new htmlWebpackPlugin({
             template: './showcase/index.html'
+        }),
+        new webpack.BannerPlugin({
+            banner: `[file] v${package.version}\n`
         }),
         new cpWebpackPlugin({
             patterns: [{

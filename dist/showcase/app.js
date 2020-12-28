@@ -21,6 +21,9 @@ var app = new Vue({
             console.log("done something!");
         },
         sidebarItemClicked: function(key) {
+
+            this.sidebar[key] = true;
+
             if(key!== 'menu1')
                 this.sidebar.menu1 = false;
             
