@@ -6,6 +6,18 @@
     margin-right: 12px;
 } 
 
+/*
+app-master-details
+*/
+.app-master-details__header {
+    display: flex;
+    padding: 5px;
+    background-color: #e0e0e0;
+}
+
+/*
+app-master-details
+*/
 .sidebar {
     flex: 0 0 auto;
     display: flex;

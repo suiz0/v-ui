@@ -5,6 +5,7 @@ import AppInput from './components/app-input';
 import Sidebar, {SidebarItem, SidebarButton} from './components/app-sidebar';
 import SidebarExtended from './components/app-sidebar-extended';
 import AppTree from './components/tree';
+import AppMasterDetails from './components/app-master-details';
 
 import './styles/layout.css';
 import './styles/components.css';
@@ -18,5 +19,6 @@ export default {
     AppSidebarItem: SidebarItem,
     AppSidebarExtended: SidebarExtended,
     AppSidebarButton: SidebarButton,
-    AppTree: AppTree
+    AppTree: AppTree,
+    AppTable: AppMasterDetails
 }
