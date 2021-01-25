@@ -1,4 +1,4 @@
-declare let Vue: any;
+import Vue from 'vue';
 
 const Sidebar = Vue.component('app-sidebar', {
     template: `

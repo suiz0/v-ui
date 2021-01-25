@@ -1,4 +1,4 @@
-declare let Vue:any;
+import Vue from 'vue';
 
 
 const AppForm = Vue.component('app-form', {

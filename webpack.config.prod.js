@@ -32,6 +32,9 @@ module.exports = {
             }
         ]
     },
+    externals: {
+        vue: 'Vue'
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new htmlWebpackPlugin({

@@ -1,5 +1,4 @@
-declare let Vue:any;
-
+import Vue from 'vue';
 import BaseMixing from '../mixins';
 
 const Screen = Vue.component('app-screen', {

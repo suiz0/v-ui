@@ -33,6 +33,9 @@ module.exports = {
             }
         ]
     },
+    externals: {
+        vue: 'Vue'
+    },
     plugins: [
         new htmlWebpackPlugin({
             template: './showcase/index.html'
