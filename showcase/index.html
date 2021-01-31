@@ -36,6 +36,12 @@
                                 </template>
                                 Screen Control
                             </app-sidebar-item>
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='tree-ctrl' :is-selected="sidebar.menu4">
+                                <template v-slot:icon>
+                                    <span class="oi oi-credit-card"></span>
+                                </template>
+                                Tree Control
+                            </app-sidebar-item>
                             <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
                                 <template v-slot:icon>
                                     <span class="oi oi-beaker"></span>
@@ -50,6 +56,9 @@
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="sidebarItemClicked" id="menu3" :is-selected="sidebar.menu3" class="btn-dark">
                             <span class="oi oi-credit-card"></span>
+                        </app-sidebar-button>
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="tree-ctrl" :is-selected="sidebar.menu4" class="btn-dark">
+                            <span class="oi oi-project"></span>
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
                             <span class="oi oi-beaker"></span>
@@ -68,6 +77,10 @@
                     <app-form>
                         <b-button type="submit">Submit me!</b-button>
                     </app-form>
+                </div>
+                <div v-show="view==='tree-ctrl'">
+                    <h2>Tree Control</h2>
+                    <app-tree :items="tree"></app-tree>
                 </div>
                 <div v-show="view==='screen'" class="view-content">
                     <h2>Screen Controls</h2>

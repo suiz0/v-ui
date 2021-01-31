@@ -11,10 +11,18 @@ var app = new Vue({
             id: 1,
 
         },
+        tree: [
+            {description: 'item1'},
+            {description: 'item2', children: [
+                {description: 'item 2.1'},
+                {description: 'item 2.2'}
+            ]}
+        ],
         sidebar: {
             menu1: true,
             menu2: false,
-            menu3: false
+            menu3: false,
+            menu4: false
         }
     },
     methods: {
@@ -28,6 +36,8 @@ var app = new Vue({
                 this.view ="";
             if(key==="menu3")
                 this.view="screen";
+            if(key==='tree-ctrl')
+                this.view=key;
         },
         toggleItems(key) {
             this.sidebar[key] = true;
@@ -37,6 +47,9 @@ var app = new Vue({
             
             if(key!== 'menu3')
                 this.sidebar.menu3 = false;
+            
+            if(key!== 'tree-ctrl')
+                this.sidebar.menu4 = false;
         },
         screenSave: function(){
             alert("Save");

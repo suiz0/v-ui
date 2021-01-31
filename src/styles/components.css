@@ -85,3 +85,11 @@
 .sidebar--dark .sidebar__item:hover, .sidebar--dark .sidebar__button:hover, .sidebar--dark .sidebar__item--active {
     background-color: #007bff;
 }
+
+.app-tree-node {
+    border: none;
+}
+
+.app-tree-node--empty {
+    margin-left: 8px;
+}
