@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        view: '',
         mainToolbar: {
             collapsed: true
         },
@@ -21,7 +22,14 @@ var app = new Vue({
             console.log("done something!");
         },
         sidebarItemClicked: function(key) {
+            this.toggleItems(key);
 
+            if(key==="menu1")
+                this.view ="";
+            if(key==="menu3")
+                this.view="screen";
+        },
+        toggleItems(key) {
             this.sidebar[key] = true;
 
             if(key!== 'menu1')
@@ -46,7 +54,7 @@ var app = new Vue({
             window.location.href="./showcase/two-columns.html";
         },
         takeAction(item) {
-            if (item.description.toLowerCase() === "home")
+            if (item.description.toLowerCase() === "back to main view")
                 this.showHome();
         },
         showHome()

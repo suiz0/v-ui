@@ -30,17 +30,17 @@
                                 </template>
                                 Home
                             </app-sidebar-item>
-                            <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
-                                <template v-slot:icon>
-                                    <span class="oi oi-beaker"></span>
-                                </template>
-                                Two Columns
-                            </app-sidebar-item>
                             <app-sidebar-item @clicked="sidebarItemClicked" id='menu3' :is-selected="sidebar.menu3">
                                 <template v-slot:icon>
                                     <span class="oi oi-credit-card"></span>
                                 </template>
-                                Another entry
+                                Screen Control
+                            </app-sidebar-item>
+                            <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
+                                <template v-slot:icon>
+                                    <span class="oi oi-beaker"></span>
+                                </template>
+                                Two Columns Layout
                             </app-sidebar-item>
                         </div>
                     </template>
@@ -48,15 +48,15 @@
                         <app-sidebar-button @clicked="sidebarItemClicked" id="menu1" :is-selected="sidebar.menu1" class="btn-dark">
                             <span class="oi oi-home"></span>
                         </app-sidebar-button>
-                        <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
-                            <span class="oi oi-beaker"></span>
-                        </app-sidebar-button>
                         <app-sidebar-button @clicked="sidebarItemClicked" id="menu3" :is-selected="sidebar.menu3" class="btn-dark">
                             <span class="oi oi-credit-card"></span>
                         </app-sidebar-button>
+                        <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
+                            <span class="oi oi-beaker"></span>
+                        </app-sidebar-button>
                     </template>
                 </app-sidebar>
-                <div class="view-content">
+                <div v-show="view===''" class="view-content">
                     <h2>Basic Controls</h2>
                     <h3>Input field</h3>
                     <app-input label="Text Input" type="text" size="sm"></app-input>
@@ -68,6 +68,8 @@
                     <app-form>
                         <b-button type="submit">Submit me!</b-button>
                     </app-form>
+                </div>
+                <div v-show="view==='screen'" class="view-content">
                     <h2>Screen Controls</h2>
                     <div style="width: 100%; height: 500px;">
                         <app-screen @new="screenNew" @cancel="screenCancel" @save="screenSave" :model="User">
