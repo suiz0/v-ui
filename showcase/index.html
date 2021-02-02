@@ -36,12 +36,13 @@
                                 </template>
                                 Screen Control
                             </app-sidebar-item>
-                            <app-sidebar-item @clicked="sidebarItemClicked" id='tree-ctrl' :is-selected="sidebar.menu4">
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='tree-ctrl' :is-selected="sidebar['tree-ctrl']">
                                 <template v-slot:icon>
                                     <span class="oi oi-project"></span>
                                 </template>
                                 Tree Control
                             </app-sidebar-item>
+                            <app-tree v-if="sidebar['tree-ctrl']" :items="tree"></app-tree>
                             <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
                                 <template v-slot:icon>
                                     <span class="oi oi-beaker"></span>
@@ -57,7 +58,7 @@
                         <app-sidebar-button @clicked="sidebarItemClicked" id="menu3" :is-selected="sidebar.menu3" class="btn-dark">
                             <span class="oi oi-credit-card"></span>
                         </app-sidebar-button>
-                        <app-sidebar-button @clicked="sidebarItemClicked" id="tree-ctrl" :is-selected="sidebar.menu4" class="btn-dark">
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="tree-ctrl" :is-selected="sidebar['tree-ctrl']" class="btn-dark">
                             <span class="oi oi-project"></span>
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
@@ -78,7 +79,7 @@
                         <b-button type="submit">Submit me!</b-button>
                     </app-form>
                 </div>
-                <div v-show="view==='tree-ctrl'">
+                <div v-show="view==='tree-ctrl'" class="view-content">
                     <h2>Tree Control</h2>
                     <app-tree :items="tree"></app-tree>
                 </div>

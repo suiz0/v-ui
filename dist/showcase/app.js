@@ -14,7 +14,12 @@ var app = new Vue({
         tree: [
             {description: 'item1'},
             {description: 'item2', children: [
-                {description: 'item 2.1'},
+                {description: 'item 2.1',
+                children: [
+                    {description: 'item 2.1.1'},
+                    {description: 'item 2.1.2'}
+                ]
+                },
                 {description: 'item 2.2'}
             ]}
         ],
@@ -22,7 +27,7 @@ var app = new Vue({
             menu1: true,
             menu2: false,
             menu3: false,
-            menu4: false
+            'tree-ctrl': false
         }
     },
     methods: {
@@ -49,7 +54,7 @@ var app = new Vue({
                 this.sidebar.menu3 = false;
             
             if(key!== 'tree-ctrl')
-                this.sidebar.menu4 = false;
+                this.sidebar['tree-ctrl'] = false;
         },
         screenSave: function(){
             alert("Save");
