@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column;
     padding: 15px 15px;
+    box-shadow: 4px 0px 6px 2px rgba(0, 0, 0, .16);
+    z-index: 1000;
 }
 
 .sidebar--collapsed {
