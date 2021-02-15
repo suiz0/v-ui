@@ -38,27 +38,27 @@ var app = new Vue({
         sidebarItemClicked: function(key) {
             this.toggleItems(key);
 
-            if(key==="menu1") {
-                this.view ="";
-            } else if(key==="menu3") { 
-                this.view="screen";
+            if(key === "menu1") {
+                this.view = "";
+            } else if(key === "menu3") { 
+                this.view = "screen";
             } else {
-                this.view=key;
+                this.view = key;
             }
         },
         toggleItems(key) {
             this.sidebar[key] = true;
 
-            if(key!== 'menu1')
+            if(key !== 'menu1')
                 this.sidebar.menu1 = false;
             
-            if(key!== 'menu3')
+            if(key !== 'menu3')
                 this.sidebar.menu3 = false;
             
-            if(key!== 'tree-ctrl')
+            if(key !== 'tree-ctrl')
                 this.sidebar['tree-ctrl'] = false;
             
-            if(key!== 'master-details')
+            if(key !== 'master-details')
                 this.sidebar['master-details'] = false;
         },
         screenSave: function(){
