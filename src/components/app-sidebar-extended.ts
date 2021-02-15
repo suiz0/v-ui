@@ -3,12 +3,15 @@ import Vue from 'vue';
 const SidebarExtended = Vue.component('app-sidebar-extended', {
     template: `<app-sidebar :title="title" :is-collapsed="!isExpanded" class="sidebar--extended" :variant="variant">
             <div class="list-group">
-                <app-sidebar-item v-for="(item, index) in items" :is-selected="item==selected" :key="index" @clicked="itemClicked(item)">
-                    <template v-slot:icon>
-                        <span v-html="item.icon"></span>
-                    </template>
-                    {{item.description}}
-                </app-sidebar-item>
+                <template v-for="(item, index) in items">
+                    <app-sidebar-item :is-selected="item==selected" :key="index" @clicked="itemClicked(item)">
+                        <template v-slot:icon>
+                            <span v-html="item.icon"></span>
+                        </template>
+                        {{item.description}}
+                    </app-sidebar-item>
+                    <app-tree v-if="item.children && item.children.length > 0 && item === selected" :items="item.children"></<app-tree>
+                </template>
             </div>
             <template v-slot:footer>
                 <button class="btn btn-dark sidebar__button sidebar__toggler" @click="toggle">
