@@ -6,11 +6,11 @@ const treeNode = Vue.component('app-tree-node', {
             <div class="app-tree-node__icon item__icon" @click="toggle" v-show="hasChildren">
                 <span class="oi oi-caret-right"></span>
             </div>
-            <div class="app-tree-node__content" :class="{'app-tree-node--empty' :!hasChildren}">
+            <div class="app-tree-node__content" @click="clicked()" :class="{'app-tree-node--empty' :!hasChildren}">
             {{node.description}}
             </div>
         </div>
-        <app-tree v-if="hasChildren" :items="node.children" v-show="isExpanded" class="app-tree__subtree" :variant="variant"></app-tree>
+        <app-tree v-if="hasChildren" @item-selected="clicked" :items="node.children" v-show="isExpanded" class="app-tree__subtree" :variant="variant"></app-tree>
 
     </div>`,
     props: {
@@ -30,6 +30,11 @@ const treeNode = Vue.component('app-tree-node', {
     methods: {
         toggle() {
             this.isExpanded = !this.isExpanded;
+        },
+        clicked(item) {
+            let t = item || this.node;
+
+            this.$emit('item-selected', t);
         }
     }
 });

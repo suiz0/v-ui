@@ -76,9 +76,13 @@ var app = new Vue({
         showTwoColumnLayout() {
             window.location.href="./showcase/two-columns.html";
         },
-        takeAction(item) {
+        takeAction(item, child) {
             if (item.description.toLowerCase() === "back to main view")
                 this.showHome();
+
+            // For tree items
+            if(child && child.description.toLowerCase() === "sample item 1.1")
+                alert("Item from tree selected");
         },
         showHome()
         {

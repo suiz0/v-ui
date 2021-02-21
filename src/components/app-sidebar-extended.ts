@@ -10,7 +10,7 @@ const SidebarExtended = Vue.component('app-sidebar-extended', {
                         </template>
                         {{item.description}}
                     </app-sidebar-item>
-                    <app-tree v-if="item.children && item.children.length > 0 && item === selected" :items="item.children"></<app-tree>
+                    <app-tree @item-selected="childSelected(item, $event)" v-if="item.children && item.children.length > 0 && item === selected" :items="item.children"></<app-tree>
                 </template>
             </div>
             <template v-slot:footer>
@@ -41,9 +41,12 @@ const SidebarExtended = Vue.component('app-sidebar-extended', {
         {
             this.isExpanded = !this.isExpanded;
         },
-        itemClicked(item) 
+        childSelected(parent, item) {
+            this.itemClicked(parent, item);
+        },
+        itemClicked(item, child?) 
         {
-            this.$emit("item-selected", item);
+            this.$emit("item-selected", item, child);
             this.setSelected(item);
         },
         setSelected(item) 

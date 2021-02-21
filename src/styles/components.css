@@ -108,6 +108,10 @@ app-master-details
     border: none;
 }
 
+.sidebar .app-tree-node {
+    cursor: pointer;
+} 
+
 .app-tree-node--dark {
     color: #fff;
 }
