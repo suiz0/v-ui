@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id='app' class="view-container">
-            <app-sidebar-extended title="Porduct - Desc" @item-selected="takeAction" :is-collapsed="false" :items="[{'description':'Home', 'icon': '<span class=&quot;oi oi-home&quot;></span>'}, {'description': 'Sample Item', 'icon': '<span class=&quot;oi oi-beaker&quot;></span>', 'children': [{'description': 'Sample Item 1.1', 'icon': '<span class=&quot;oi oi-beaker&quot;></span>'}]}, {'description': 'Back to main view', 'icon': '<span class=&quot;oi oi-chevron-left&quot;></span>'}]" />
+            <app-sidebar-extended title="Porduct - Desc" @item-selected="takeAction" :is-collapsed="false" :items="[{'description':'Home', 'icon': '<span class=&quot;oi oi-home&quot;></span>'}, {'description': 'Sample Item', 'icon': '<span class=&quot;oi oi-beaker&quot;></span>', 'children': [{'description': 'Sample Item 1.1', 'children': [{'description': 'Sample Item 1.1'}], 'icon': '<span class=&quot;oi oi-beaker&quot;></span>'}]}, {'description': 'Back to main view', 'icon': '<span class=&quot;oi oi-chevron-left&quot;></span>'}]" />
             <div class="view-content">
                 <h1>Titulo 1</h1>
             </div>

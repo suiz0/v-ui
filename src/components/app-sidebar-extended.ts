@@ -10,7 +10,7 @@ const SidebarExtended = Vue.component('app-sidebar-extended', {
                         </template>
                         {{item.description}}
                     </app-sidebar-item>
-                    <app-tree @item-selected="childSelected(item, $event)" v-if="item.children && item.children.length > 0 && item === selected" :items="item.children"></<app-tree>
+                    <app-tree class="mb-1" @item-selected="childSelected(item, $event)" v-if="item.children && item.children.length > 0 && item === selected" :items="item.children"></<app-tree>
                 </template>
             </div>
             <template v-slot:footer>
