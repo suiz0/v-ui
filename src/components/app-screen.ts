@@ -9,10 +9,10 @@ const Screen = Vue.component('app-screen', {
         <b-navbar-nav class="ml-auto">
             <b-button-toolbar aria-label="Toolbar with button groups and dropdown menu">
                 <b-button-group class="mx-1" v-if="!hideDefaultToolbar">
-                    <b-button @click="$emit('new')">New</b-button>
-                    <b-button @click="$emit('edit')">Edit</b-button>
-                    <b-button @click="save">Save</b-button>
-                    <b-button @click="cancel">Cancel</b-button>
+                    <b-button v-show="mode==='view'" @click="del">Delete</b-button>
+                    <b-button v-show="mode==='view'" @click="$emit('edit')">Edit</b-button>
+                    <b-button v-show="['new', 'edit'].indexOf(mode)>=0" @click="save">Save</b-button>
+                    <b-button v-show="['new', 'edit'].indexOf(mode)>=0" @click="cancel">Cancel</b-button>
                 </b-button-group>
                 <slot name="custom-toolbar">
                 </slot>
@@ -27,7 +27,8 @@ const Screen = Vue.component('app-screen', {
     props: {
         title: {type: String, default: 'Screen'},
         hideDefaultToolbar: {type: Boolean, default: false},
-        model: {type: Object, default: () => {}}
+        model: {type: Object, default: () => {}},
+        mode: {type: String, default: 'view'}
     },
     data() {
         return {
@@ -37,6 +38,9 @@ const Screen = Vue.component('app-screen', {
     methods: {
         save: function() {
             this.$emit("save", Object.assign({}, this.entity));
+        },
+        del: function() {
+            this.$emit('delete', this.model);
         },
         cancel: function () {
             this.$emit('cancel');

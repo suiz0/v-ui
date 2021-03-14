@@ -67,8 +67,8 @@ var app = new Vue({
         screenCancel: function() {
             alert("Cancel");
         },
-        screenNew: function() {
-            alert("New");
+        deleteScreen: function() {
+            alert("deleting...");
         },
         toggleSidebar() {
             this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
