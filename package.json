@@ -1,8 +1,8 @@
 {
   "name": "v-ui",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "a component library for building web app",
-  "main": "index.js",
+  "main": "dist/v-ui.js",
   "scripts": {
     "start": "webpack-dev-server --open --config=webpack.config.dev.js",
     "build:debug": "webpack --config=webpack.config.dev.js",
