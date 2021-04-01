@@ -10,7 +10,9 @@ module.exports = {
     mode: "production",
     output: {
         filename: "v-ui.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        library: "vui",
+        libraryExport: "default"
     },
     devtool: "source-map",
     resolve: {
