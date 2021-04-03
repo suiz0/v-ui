@@ -2,6 +2,11 @@
     padding-top: 10px;
 }
 
+.form-group--required legend:after {
+    content: '*';
+    color: #dc3545;
+}
+
 .item__icon {
     margin-right: 12px;
 } 

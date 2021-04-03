@@ -78,11 +78,12 @@
                 <div v-show="view===''" class="view-content">
                     <h2>Basic Controls</h2>
                     <h3>Input field</h3>
-                    <app-input label="Text Input" type="text" size="sm"></app-input>
-                    <app-input label="Number Input" type="number" size="sm"></app-input>
+                    <app-input label="Text Input" type="text" size="sm"></app-input>                    <app-input label="Number Input" type="number" size="sm"></app-input>
                     <app-input label="Password Input" type="password" size="sm"></app-input>
                     <h4>Input with error</h4>
                     <app-input label="Name" type="text" size="sm" :is-valid="false" error="Missing field"></app-input>
+                    <h4>Required Input</h4>
+                    <app-input label="Text Input" type="text" :is-required="true" size="sm"></app-input>
                     <h2>Form</h2>
                     <app-form>
                         <b-button type="submit">Submit me!</b-button>
