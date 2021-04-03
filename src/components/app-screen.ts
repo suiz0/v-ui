@@ -43,6 +43,7 @@ const Screen = Vue.component('app-screen', {
             this.$emit('delete', this.model);
         },
         cancel: function () {
+            this.reset();
             this.$emit('cancel');
         },
         reset: function() {

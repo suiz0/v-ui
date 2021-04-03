@@ -95,7 +95,7 @@
                 <div v-show="view==='screen'" class="view-content">
                     <h2>Screen Controls</h2>
                     <div style="width: 100%; height: 500px;">
-                        <app-screen @delete="deleteScreen" @cancel="screenCancel" @save="screenSave" :model="User">
+                        <app-screen ref="screen" @delete="screenDelete" @cancel="screenCancel" @save="screenSave" :model="User">
                             <template v-slot:default="data">
                                 <div class="col-6">
                                     <app-input label="Name" type="text" size="sm" v-model="data.entity.name"></app-input>
@@ -107,6 +107,7 @@
                             <template v-slot:custom-toolbar>
                                 <b-button-group class="mx-1">
                                     <b-button @click="doSomething">Custom</b-button>
+                                    <b-button @click="screenCancelRef">Reset</b-button>
                                 </b-button-group>
                             </template>
                         </app-screen>
