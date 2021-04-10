@@ -2,17 +2,24 @@ import Vue from 'vue';
 
 
 const AppForm = Vue.component('app-form', {
-    template: `<b-form @submit="submit">
+    template: `<form ref="frm" @submit="onSubmit">
         <slot><!-- default content--><slot>
-    </b-form>`,
+    </form>`,
     methods: {
-        submit: function(ev) {
-            if (ev.target.checkValidity() === true) {
-                this.$emit('submitted', ev);
+        onSubmit: function(ev) {
+            ev.preventDefault();
+            this.submit();
+        },
+        submit(silent = false) {
+            let ret = false;
+            if(this.$refs['frm'].checkValidity() === true) {
+                ret = true;
+                if(!silent) this.$emit('submitted');
+            } else {
+                this.$refs['frm'].reportValidity();
             }
-            else {
-                ev.preventDefault();
-            }
+
+            if(silent) return ret;
         }
     }
 });

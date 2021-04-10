@@ -11,7 +11,7 @@ const Screen = Vue.component('app-screen', {
                 <b-button-group class="mx-1" v-if="!hideDefaultToolbar">
                     <b-button v-show="mode==='view'" @click="del">Delete</b-button>
                     <b-button v-show="mode==='view'" @click="$emit('edit')">Edit</b-button>
-                    <b-button v-show="['new', 'edit'].indexOf(mode)>=0" @click="save">Save</b-button>
+                    <b-button v-show="['new', 'edit'].indexOf(mode)>=0" @click="save(useForm ? validateForm : null)">Save</b-button>
                     <b-button v-show="['new', 'edit'].indexOf(mode)>=0" @click="cancel">Cancel</b-button>
                 </b-button-group>
                 <slot name="custom-toolbar">
@@ -20,15 +20,22 @@ const Screen = Vue.component('app-screen', {
         </b-navbar-nav>
     </b-navbar>
     <div class="view-content app-screen__content">
-        <slot v-bind:entity="entity">
-        </slot>
+        <app-form v-if="useForm" ref="form">
+            <slot v-bind:entity="entity">
+            </slot>
+        </app-form>
+        <template v-else>
+            <slot v-bind:entity="entity">
+            </slot>
+        </template>
     </div>
 </div>`,
     props: {
         title: {type: String, default: 'Screen'},
         hideDefaultToolbar: {type: Boolean, default: false},
         model: {type: Object, default: () => {}},
-        mode: {type: String, default: 'view'}
+        mode: {type: String, default: 'view'},
+        useForm: {type: Boolean, default: true}
     },
     data() {
         return {
@@ -36,7 +43,16 @@ const Screen = Vue.component('app-screen', {
         };
     },
     methods: {
-        save: function() {
+        validateForm: function() {
+            return this.$refs['form'].submit(true);
+        },
+        save: function(validateFn) {
+            if(validateFn) {
+                if(!validateFn()) {
+                    return false;
+                }
+            }
+            
             this.$emit("save", Object.assign({}, this.entity));
         },
         del: function() {
