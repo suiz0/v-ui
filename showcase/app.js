@@ -11,6 +11,9 @@ var app = new Vue({
             id: 1,
 
         },
+        alert: {
+            countDown: 0
+        },
         tree: [
             {description: 'item1'},
             {description: 'item2', children: [
@@ -32,10 +35,10 @@ var app = new Vue({
         }
     },
     methods: {
-        doSomething: function() {
+        doSomething() {
             console.log("done something!");
         },
-        sidebarItemClicked: function(key) {
+        sidebarItemClicked(key) {
             this.toggleItems(key);
 
             if(key === "menu1") {
@@ -47,30 +50,28 @@ var app = new Vue({
             }
         },
         toggleItems(key) {
+            for(var k in this.sidebar){
+                this.sidebar[k] = false;
+            }
+            
             this.sidebar[key] = true;
-
-            if(key !== 'menu1')
-                this.sidebar.menu1 = false;
-            
-            if(key !== 'menu3')
-                this.sidebar.menu3 = false;
-            
-            if(key !== 'tree-ctrl')
-                this.sidebar['tree-ctrl'] = false;
-            
-            if(key !== 'master-details')
-                this.sidebar['master-details'] = false;
         },
-        screenSave: function(){
+        showAlert() {
+            this.$refs['alert1'].show();
+        },
+        updateAlertCountDown(time) {
+            this.alert.countDown = time;
+        },
+        screenSave(){
             alert("Save");
         },
-        screenCancel: function() {
+        screenCancel() {
             alert("Cancel");
         },
-        screenDelete: function() {
+        screenDelete() {
             alert("deleting...");
         },
-        screenCancelRef: function() {
+        screenCancelRef() {
             this.$refs['screen'].cancel();
         },
         toggleSidebar() {
