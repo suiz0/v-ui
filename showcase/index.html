@@ -49,6 +49,12 @@
                                 </template>
                                 Master Details
                             </app-sidebar-item>
+                            <app-sidebar-item @clicked="sidebarItemClicked" id="alert" :is-selected="sidebar.alert">
+                                <template v-slot:icon>
+                                    <span class="oi oi-chat"></span>
+                                </template>
+                                Alerts
+                            </app-sidebar-item>
                             <app-sidebar-item @clicked="showTwoColumnLayout" id='menu2' :is-selected="sidebar.menu2">
                                 <template v-slot:icon>
                                     <span class="oi oi-beaker"></span>
@@ -69,6 +75,9 @@
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="sidebarItemClicked" id="master-details" :is-selected="sidebar['master-details']" class="btn-dark">
                             <span class="oi oi-briefcase"></span>
+                        </app-sidebar-button>
+                        <app-sidebar-button @clicked="sidebarItemClicked" :is-selected="sidebar.alert" id="alert">
+                            <span class="oi oi-chat"></span>
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="showTwoColumnLayout" :is-selected="sidebar.menu2" id="menu2">
                             <span class="oi oi-beaker"></span>
@@ -123,6 +132,19 @@
                         >
                         </app-master-details>
                     </div>
+                </div>
+                <div v-show="view==='alert'" class="view-content">
+                    <h2>Alert Messages</h2>
+                    <app-alert>
+                        This an alert message with default values
+                    </app-alert>
+                    <app-alert dismissible variant="danger">
+                        Dismissible alert
+                    </app-alert>
+                    <app-alert ref="alert1" :is-hidden="true" variant="success" @dismiss-count-down="updateAlertCountDown" :timeout="10" dismissible variant="danger">
+                        This alert will be dismissed in {{alert.countDown}} seconds...
+                    </app-alert>
+                    <b-button @click="showAlert" variant="success">Show Auto-dismissible alert (10 seconds)</b-button>
                 </div>
             </div>
         </div>

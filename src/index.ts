@@ -6,6 +6,7 @@ import Sidebar, {SidebarItem, SidebarButton} from './components/app-sidebar';
 import SidebarExtended from './components/app-sidebar-extended';
 import AppTree from './components/tree';
 import AppMasterDetails from './components/master-details';
+import AppAlert from './components/alert-message/alert-message';
 
 import './styles/layout.css';
 import './styles/components.css';
@@ -20,5 +21,6 @@ export default {
     AppSidebarExtended: SidebarExtended,
     AppSidebarButton: SidebarButton,
     AppTree: AppTree,
-    AppTable: AppMasterDetails
+    AppTable: AppMasterDetails,
+    AppAlert: AppAlert
 }
