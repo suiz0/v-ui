@@ -20,6 +20,10 @@ app-master-details
     background-color: #e0e0e0;
 }
 
+.row--selected {
+    background-color: #f5f5f5;
+}
+
 /*
 app-master-details
 */

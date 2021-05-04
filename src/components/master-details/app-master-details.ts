@@ -1,4 +1,5 @@
-declare let Vue: any;
+import Vue from 'vue';
+import AppTable from './app-table';
 
 const AppMasterDetails = Vue.component('app-master-details',{
     template: `<div class="app-master-details">
@@ -9,22 +10,7 @@ const AppMasterDetails = Vue.component('app-master-details',{
                 <button type="button" class="btn ml-1 btn-outline-dark" @click="add"> + </button>
             </div>
         </section>
-        <table :class="['table', variant ? 'table-' + variant: null]">
-            <thead :class="[headersConfig.variant ? 'thead-' + headersConfig.variant: null]">
-                <tr>
-                    <th>#</th>
-                    <th v-for="header in headers">
-                        {{header.description}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(row, index) in rows">
-                    <td>{{index+1}}</td>
-                    <td v-for="header in headers">{{row[header.name]}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <app-table :variant="variant" :headers="headers" :rows="rows" :headers-config="headersConfig"></app-table>
     </div>`,
     props: {
         title: {type: String, default: 'Data Sample'},
