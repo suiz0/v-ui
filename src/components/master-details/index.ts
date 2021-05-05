@@ -1,5 +1,5 @@
 import masterDetails from './app-master-details';
+import AppTable from './app-table';
 
-export default {
-    AppMasterDetails: masterDetails
-}
+export default masterDetails;
+export {AppTable};
