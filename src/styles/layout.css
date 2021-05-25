@@ -4,16 +4,18 @@ body{
 
 .view-container {
     display: flex;
-    flex: 1 1 auto;
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
 
 .view-content {
-    flex: 1 1 100vw;
-    height: 100%;
+    flex: 1 1 auto;
     overflow-y: auto;
+}
+
+.view-content--hidden {
+    overflow: hidden !important;
 }
 
 .view--with-toolbar {

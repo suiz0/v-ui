@@ -24,6 +24,19 @@ app-master-details
     background-color: #f5f5f5;
 }
 
+.app-list-view {
+    display: flex;
+}
+
+.app-list-view__list {
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+.app-list-view__detail {
+    flex:2;
+}
+
 /*
 app-master-details
 */

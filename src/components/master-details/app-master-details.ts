@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import AppTable from './app-table';
+import AppListView from './app-list-view';
 
 const AppMasterDetails = Vue.component('app-master-details',{
-    template: `<div class="app-master-details">
+    template: `<div class="app-master-details view-container view--with-toolbar">
         <section class="app-master-details__header d-flex">
             <h3>{{title}}</h3>
             <div class="d-flex ml-auto mr-1" role="group" aria-label="Basic example">
@@ -10,7 +11,13 @@ const AppMasterDetails = Vue.component('app-master-details',{
                 <button type="button" class="btn ml-1 btn-outline-dark" @click="add"> + </button>
             </div>
         </section>
-        <app-table :variant="variant" :headers="headers" :rows="rows" :headers-config="headersConfig"></app-table>
+        <section class="view-content">
+            <app-table :variant="variant" 
+            :headers="headers" :rows="rows" 
+            :headers-config="headersConfig"></app-table>
+            <app-list-view v-if="isListViewEnabled">
+            </app-list--view>
+        </section>
     </div>`,
     props: {
         title: {type: String, default: 'Data Sample'},
@@ -22,6 +29,11 @@ const AppMasterDetails = Vue.component('app-master-details',{
                 variant: 'light'
             }
         }}
+    },
+    data() {
+        return {
+            isListViewEnabled: false
+        };
     },
     methods: {
         add() {
