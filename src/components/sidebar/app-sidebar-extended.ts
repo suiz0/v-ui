@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './sidebar.css';
 
 const SidebarExtended = Vue.component('app-sidebar-extended', {
     template: `<app-sidebar :title="title" :is-collapsed="!isExpanded" class="sidebar--extended" :variant="variant">

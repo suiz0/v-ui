@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './sidebar.css'
 
 const Sidebar = Vue.component('app-sidebar', {
     template: `
