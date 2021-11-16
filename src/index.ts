@@ -1,4 +1,4 @@
-import Screen from './components/app-screen';
+import Screen from './components/screen/app-screen';
 import AppToolbar from './components/app-toolbar';
 import AppForm from './components/app-form';
 import AppInput from './components/app-input';

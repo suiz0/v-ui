@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import BaseMixing from '../mixins';
+import BaseMixing from '../../mixins';
+import './app-screen.css';
 
 const Screen = Vue.component('app-screen', {
     mixins: [BaseMixing],
@@ -20,7 +21,7 @@ const Screen = Vue.component('app-screen', {
         </b-navbar-nav>
     </b-navbar>
     <div class="view-content app-screen__content">
-        <app-form v-if="useForm" ref="form">
+        <app-form class="row" v-if="useForm" ref="form">
             <slot v-bind:entity="entity">
             </slot>
         </app-form>
