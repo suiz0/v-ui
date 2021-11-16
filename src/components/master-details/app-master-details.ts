@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './app-master-details.css';
 import AppTable from './app-table';
 
 const AppMasterDetails = Vue.component('app-master-details',{

@@ -30,6 +30,11 @@ let AppTable = Vue.component('app-table', {
         showIndexColumn: {type: Boolean, default: false},
         rows: {type: Array, default: () => []}
     },
+    watch: {
+        rows(newValues) {
+            this.innerRows = this.parseRows(newValues);
+        }
+    },
     data() {
         return {
             innerRows: []
