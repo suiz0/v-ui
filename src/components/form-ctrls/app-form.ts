@@ -1,5 +1,5 @@
 import Vue from 'vue';
-
+import './app-form.css';
 
 const AppForm = Vue.component('app-form', {
     template: `<form ref="frm" @submit="onSubmit">

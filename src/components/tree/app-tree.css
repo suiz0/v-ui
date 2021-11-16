@@ -1,0 +1,27 @@
+.app-tree-node {
+    border: none;
+}
+
+.sidebar .app-tree-node {
+    cursor: pointer;
+} 
+
+.app-tree-node--dark {
+    color: #fff;
+}
+
+.app-tree-node--light {
+    color: #000;
+}
+
+.app-tree-node--empty {
+    margin-left: 20px;
+}
+
+.app-tree-node__icon {
+    cursor: pointer;
+}
+
+.item__icon {
+    margin-right: 12px;
+} 

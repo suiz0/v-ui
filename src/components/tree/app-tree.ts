@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './app-tree.css';
 
 const tree = Vue.component('app-tree', {
     template: `<div class="list-group app-tree">
