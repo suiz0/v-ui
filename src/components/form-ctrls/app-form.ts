@@ -12,25 +12,24 @@ const AppForm = Vue.component('app-form', {
         },
         submit(silent = false) {
             let ret = false;
-            if (this.validateFields(this.$refs['frm'].children)) {
+            if (this.validateFields(this.getFields())) {
                 ret = true;
                 if(!silent) this.$emit('submitted');
             } else {
                 this.$refs['frm'].reportValidity();
             }
 
-            if(silent) return ret;
+            if (silent) return ret;
+        },
+        getFields() {
+            return this.$refs['frm'].getElementsByTagName('input');
         },
         validateFields(nodes) {
             let isOk = true;
             for (const node of nodes) {
-                if (node.tagName.toLowerCase() === 'input') {
-                    if (!node.checkValidity()) {
-                        node.classList.add('is-invalid');
-                        return false;
-                    }
-                } else if (node.children.length) {
-                    isOk = isOk && this.validateFields(node.children);
+                if (!node.checkValidity()) {
+                    node.classList.add('is-invalid');
+                    isOk = false;
                 }
             }
 
