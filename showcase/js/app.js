@@ -78,7 +78,7 @@ var app = new Vue({
             this.mainToolbar.collapsed = !this.mainToolbar.collapsed;
         },
         showTwoColumnLayout() {
-            window.location.href="./showcase/two-columns.html";
+            window.location.href="./two-columns.html";
         },
         takeAction(item, child) {
             if (item.description.toLowerCase() === "back to main view")
