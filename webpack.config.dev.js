@@ -1,6 +1,4 @@
 const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
-const cpWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.ts",
@@ -9,10 +7,11 @@ module.exports = {
         filename: "v-ui.js",
         path: path.resolve(__dirname, "dist"),
         library: "vui",
-        libraryExport: "default"
+        libraryExport: "default",
+        publicPath: "/dist"
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'build/index.html'),
+        contentBase: path.resolve(__dirname, "./showcase"),
         port: 3000
     },
     devtool: "inline-source-map",
@@ -37,33 +36,5 @@ module.exports = {
     },
     externals: {
         vue: 'Vue'
-    },
-    plugins: [
-        new htmlWebpackPlugin({
-            template: './showcase/index.html'
-        }),
-        new cpWebpackPlugin({
-            patterns: [{
-                from: "./showcase/app.js",
-                to: "./showcase/"
-            },
-            {
-                from: "./showcase/js/",
-                to: "./showcase/js/"
-            },
-            {
-                from: "./showcase/styles/",
-                to: "./showcase/styles/"
-            },
-            {
-                from: "./showcase/two-columns.html",
-                to: "./showcase/"
-            },
-            {
-                from: "./showcase/fonts/",
-                to: "./showcase/fonts/"
-            }
-            ]
-        })
-    ]
+    }
 }
