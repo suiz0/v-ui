@@ -30,7 +30,7 @@ const AppForm = Vue.component('app-form', {
                         return false;
                     }
                 } else if (node.children.length) {
-                    isOk = this.validateFields(node.children);
+                    isOk = isOk && this.validateFields(node.children);
                 }
             }
 

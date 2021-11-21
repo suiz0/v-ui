@@ -113,6 +113,9 @@
                                 <div class="col-6">
                                     <app-input label="Last Name" :is-required="true" type="text" size="sm" v-model="data.entity.lastname"></app-input>
                                 </div>
+                                <div class="col-6">
+                                    <app-input label="Email" :is-required="false" type="email" size="sm" v-model="data.entity.email"></app-input>
+                                </div>
                             </template>
                             <template v-slot:custom-toolbar>
                                 <b-button-group class="mx-1">
