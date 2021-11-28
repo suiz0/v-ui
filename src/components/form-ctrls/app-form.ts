@@ -34,6 +34,15 @@ const AppForm = Vue.component('app-form', {
             }
 
             return isOk;
+        },
+        reset() {
+            this.clearValidation();
+        },
+        clearValidation() {
+            Array.from<HTMLInputElement>(this.getFields()).forEach((field) => {
+                field.setCustomValidity('');
+                field.classList.remove('is-invalid');
+            });
         }
     }
 });

@@ -65,6 +65,10 @@ const Screen = Vue.component('app-screen', {
         },
         reset: function() {
             this.entity = {};
+
+            if (this.useForm) {
+                this.$refs.form.reset();
+            }
         }
     }
 });
