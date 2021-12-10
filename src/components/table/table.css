@@ -1,0 +1,7 @@
+.app-table--stripped tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.03);
+}
+
+.app-table__row--selected td {
+    background-color: #f4f4f4;
+}

@@ -45,10 +45,10 @@ const Screen = Vue.component('app-screen', {
     },
     methods: {
         validateForm: function() {
-            return this.$refs['form'].submit(true);
+            return this.$refs.form.submit(true);
         },
         save: function(validateFn) {
-            if(validateFn) {
+            if (validateFn) {
                 if(!validateFn()) {
                     return false;
                 }

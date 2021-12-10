@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import './app-master-details.css';
-import AppTable from './app-table';
 
 const AppMasterDetails = Vue.component('app-master-details',{
     template: `<div class="app-master-details">
@@ -11,18 +10,19 @@ const AppMasterDetails = Vue.component('app-master-details',{
                 <button type="button" class="btn ml-1 btn-outline-dark" @click="add"> + </button>
             </div>
         </section>
-        <app-table :variant="variant" :headers="headers" :rows="rows" :headers-config="headersConfig"></app-table>
+        <slot v-bind="{master, variant}">
+        </slot>
     </div>`,
     props: {
         title: {type: String, default: 'Data Sample'},
-        headers: {type: Array, default: function() {return []}},
-        rows: {type: Array, default: function() {return []}},
+        master: {type: Array, default: () =>  []},
         variant: {type: String, default: 'light'},
-        headersConfig: {type: Object, default: function() {
-            return {
-                variant: 'light'
-            }
-        }}
+    },
+    data() {
+        return {
+            master: this.master,
+            detail: {}
+        }
     },
     methods: {
         add() {

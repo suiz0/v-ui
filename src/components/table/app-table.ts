@@ -1,27 +1,40 @@
 import Vue from 'vue';
 import BaseMixin from '../../mixins';
+import './table.css';
 
 let AppTable = Vue.component('app-table', {
     mixins: [BaseMixin],
-    template: `<table :class="['table', variant ? 'table-' + variant: null]">
+    template: `<table :class="[stripped ? 'app-table--stripped' : null, 'app-table', 'table', variant ? 'table-' + variant: null]">
     <thead :class="[headersConfig.variant ? 'thead-' + headersConfig.variant: null]">
         <tr>
             <th v-if="showIndexColumn">#</th>
             <th v-for="header in headers">
                 {{header.description}}
             </th>
+            <th class="col-1" v-if="showActionColumn">
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
-        <tr v-for="(row, index) in innerRows" @click="rowClicked(row)" :class="{'row--selected': row.isSelected}">
+        <tr v-for="(row, index) in innerRows" @click="rowClicked(row)" :class="{'app-table__row--selected': row.isSelected, 'app-table__row': true}">
             <td v-if="showIndexColumn">{{index+1}}</td>
             <td v-for="header in headers">{{row.data[header.name]}}</td>
+            <td v-if="showActionColumn">
+                <b-dropdown text="..." no-caret>
+                    <b-dropdown-item @click="deleteRecord($event, row)" href="#">Delete</b-dropdown-item>
+                    <slot v-bin:row="row">
+                    </slot>
+                </b-dropdown>
+            </td>
         </tr>
     </tbody>
 </table>`,
     props: {
         variant: {type: String, default: 'light'},
         headers: {type: Array, default:()=> []},
+        stripped: {type: Boolean, default: true},
+        showActionColumn: {type: Boolean, default: false},
         headersConfig: {type: Object, default: function() {
             return {
                 variant: 'light'
@@ -41,8 +54,12 @@ let AppTable = Vue.component('app-table', {
         }
     },
     methods: {
+        deleteRecord($event, item) {
+            $event.stopPropagation();
+            this.$emit('delete', item);
+        },
         parseRows(rows) {
-            return this.rows.map((currentValue) => {
+            return rows.map((currentValue) => {
                 return {
                     data: currentValue, 
                     isSelected: false
