@@ -56,7 +56,7 @@ let AppTable = Vue.component('app-table', {
     methods: {
         deleteRecord($event, item) {
             $event.stopPropagation();
-            this.$emit('delete', item);
+            this.$emit('delete', item.data);
         },
         parseRows(rows) {
             return rows.map((currentValue) => {
