@@ -3,5 +3,9 @@
 }
 
 .app-table__row--selected td {
-    background-color: #f4f4f4;
+    background-color: #d7d7d7;
+}
+
+.app-table__row--selected td {
+    color: rgb(24, 24, 24);
 }
