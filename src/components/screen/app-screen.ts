@@ -5,7 +5,7 @@ import './app-screen.css';
 const Screen = Vue.component('app-screen', {
     mixins: [BaseMixing],
     template: `<div class="view-container view--with-toolbar">
-    <b-navbar toggleable="lg" type="dark" variant="primary">
+    <b-navbar toggleable="lg" :type="type" :variant="variant">
         <b-navbar-brand tag="h1">{{title}}</b-navbar-brand>
         <b-navbar-nav class="ml-auto">
             <b-button-toolbar aria-label="Toolbar with button groups and dropdown menu">
@@ -36,6 +36,8 @@ const Screen = Vue.component('app-screen', {
         hideDefaultToolbar: {type: Boolean, default: false},
         model: {type: Object, default: () => {}},
         mode: {type: String, default: 'view'},
+        variant: {type: String, default: 'primary'},
+        type: {type:String, default: 'dark'},
         useForm: {type: Boolean, default: true}
     },
     data() {
