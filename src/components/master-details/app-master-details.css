@@ -1,5 +1,5 @@
 .app-master-details__header {
     display: flex;
     padding: 5px;
-    background-color: #e0e0e0;
+    align-items: flex-end;
 }
