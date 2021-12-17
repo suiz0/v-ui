@@ -3,3 +3,7 @@
     padding-right: 15px;
     padding-top: 10px;
 }
+
+.app-screen__navbar {
+    box-shadow: rgb(0 0 0 / 40%) 0px 0px 10px;
+}
