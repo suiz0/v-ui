@@ -6,7 +6,7 @@ const AppMasterDetails = Vue.component('app-master-details',{
         <section class="app-master-details__header">
             <section>
                 <h3>{{title}}</h3>
-                <p v-if="description" class="text-muted">{{description}}</p>
+                <p v-if="description" class="text-muted app-master-details__description">{{description}}</p>
             </section>
             <div class="d-flex ml-auto mr-1" role="group" aria-label="Basic example">
                 <button type="button" class="btn ml-1 btn-outline-dark"><span class="oi oi-magnifying-glass" @click="search"></span></button>

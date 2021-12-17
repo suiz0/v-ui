@@ -2,4 +2,9 @@
     display: flex;
     padding: 5px;
     align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.app-master-details__description {
+    margin: 0px;
 }
