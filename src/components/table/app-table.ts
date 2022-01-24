@@ -17,13 +17,17 @@ let AppTable = Vue.component('app-table', {
         </tr>
     </thead>
     <tbody>
-        <tr v-for="(row, index) in innerRows" @click="rowClicked(row)" :class="{'app-table__row--selected': row.isSelected, 'app-table__row': true}">
+        <tr v-for="(row, rowIndex) in innerRows" :class="{'app-table__row--selected': row.isSelected, 'app-table__row': true}">
             <td v-if="showIndexColumn">{{index+1}}</td>
-            <td v-for="header in headers">{{row.data[header.name]}}</td>
+            <td v-for="(header, headerIndex) in headers" @click="rowClicked(row, rowIndex, headerIndex)">
+                <slot v-bind:data="{item: row.data, header:header}">
+                    {{row.data[header.name]}}
+                </slot>
+            </td>
             <td v-if="showActionColumn">
                 <b-dropdown text="..." no-caret>
                     <b-dropdown-item @click="deleteRecord($event, row)" href="#">Delete</b-dropdown-item>
-                    <slot v-bin:row="row">
+                    <slot name="actions" v-bin:row="row">
                     </slot>
                 </b-dropdown>
             </td>
@@ -66,8 +70,9 @@ let AppTable = Vue.component('app-table', {
                 };
             });
         },
-        rowClicked(row) {
+        rowClicked(row, rowIndex, cellIndex) {
             row.isSelected = !row.isSelected;
+            this.$emit('row-clicked', row, {row: rowIndex, cell: cellIndex});
         }
     },
     created() {

@@ -2,10 +2,8 @@
     background-color: rgba(0,0,0,0.03);
 }
 
+/*TODO: Use bootstrap palette*/
 .app-table__row--selected td {
     background-color: #d7d7d7;
-}
-
-.app-table__row--selected td {
     color: rgb(24, 24, 24);
 }
