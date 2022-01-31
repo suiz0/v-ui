@@ -2,7 +2,7 @@ import Vue from 'vue';
 import BaseMixin from '../../mixins';
 import './table.css';
 
-let AppTable = Vue.component('app-table', {
+const AppTable = Vue.component('app-table', {
     mixins: [BaseMixin],
     template: `<table :class="[stripped ? 'app-table--stripped' : null, 'app-table', 'table', variant ? 'table-' + variant: null]">
     <thead :class="[headersConfig.variant ? 'thead-' + headersConfig.variant: null]">

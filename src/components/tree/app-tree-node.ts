@@ -32,7 +32,7 @@ const treeNode = Vue.component('app-tree-node', {
             this.isExpanded = !this.isExpanded;
         },
         clicked(item) {
-            let t = item || this.node;
+            const t = item || this.node;
 
             this.$emit('item-selected', t);
         }

@@ -34,7 +34,7 @@ const Screen = Vue.component('app-screen', {
     props: {
         title: {type: String, default: 'Screen'},
         hideDefaultToolbar: {type: Boolean, default: false},
-        model: {type: Object, default: () => {}},
+        model: {type: Object, default: () => ({})},
         mode: {type: String, default: 'view'},
         variant: {type: String, default: 'primary'},
         type: {type:String, default: 'dark'},
