@@ -1,3 +1,9 @@
+.app-master-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .app-master-details__header {
     display: flex;
     padding: 5px;
@@ -7,4 +13,20 @@
 
 .app-master-details__description {
     margin: 0px;
+}
+
+.app-master-details__content {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.app-master-details__master {
+    flex: 1;
+}
+
+.app-master-details__detail {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #ccc;
 }

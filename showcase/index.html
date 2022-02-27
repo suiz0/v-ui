@@ -43,9 +43,15 @@
                                 Tree Control
                             </app-sidebar-item>
                             <app-tree v-if="sidebar['tree-ctrl']" :items="tree"></app-tree>
-                            <app-sidebar-item @clicked="sidebarItemClicked" id='master-details' :is-selected="sidebar['master-details']">
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='table' :is-selected="sidebar['table']">
                                 <template v-slot:icon>
                                     <span class="oi oi-briefcase"></span>
+                                </template>
+                                Table
+                            </app-sidebar-item>
+                            <app-sidebar-item @clicked="sidebarItemClicked" id='master-details' :is-selected="sidebar['master-details']">
+                                <template v-slot:icon>
+                                    <span class="oi oi-align-left"></span>
                                 </template>
                                 Master Details
                             </app-sidebar-item>
@@ -73,8 +79,11 @@
                         <app-sidebar-button @clicked="sidebarItemClicked" id="tree-ctrl" :is-selected="sidebar['tree-ctrl']" class="btn-dark">
                             <span class="oi oi-project"></span>
                         </app-sidebar-button>
-                        <app-sidebar-button @clicked="sidebarItemClicked" id="master-details" :is-selected="sidebar['master-details']" class="btn-dark">
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="table" :is-selected="sidebar['table']" class="btn-dark">
                             <span class="oi oi-briefcase"></span>
+                        </app-sidebar-button>
+                        <app-sidebar-button @clicked="sidebarItemClicked" id="master-details" :is-selected="sidebar['master-details']" class="btn-dark">
+                            <span class="oi oi-align-left"></span>
                         </app-sidebar-button>
                         <app-sidebar-button @clicked="sidebarItemClicked" :is-selected="sidebar.alert" id="alert">
                             <span class="oi oi-chat"></span>
@@ -126,7 +135,7 @@
                         </app-screen>
                     </div>
                 </div>
-                <div v-show="view==='master-details'" class="view-content">
+                <div v-show="view==='table'" class="view-content">
                     <h2>Table Control</h2>
                     <div>
                         <app-table 
@@ -135,6 +144,13 @@
                         :rows="[{col1: '1.0', col2: '1.1', col3: '1.2'}, {col1: '2.0', col2:'2.1', col3: '2.2'}, {col1: '3.0', col2:'3.1', col3: '3.2'}, {col1: '4.0', col2:'4.1', col3: '4.2'}]" 
                         ></app-table>
                     </div>
+                </div>
+                <div v-show="view==='master-details'" class="view-content">
+                    <app-master-details
+                    :master="[{id:1, name: 'Item 1', description: 'Item 1 Description'},
+                    {id:2, name: 'Item 2', description: 'Item 2 Description'}
+                    ]">
+                    </app-master-details>
                 </div>
                 <div v-show="view==='alert'" class="view-content">
                     <h2>Alert Messages</h2>

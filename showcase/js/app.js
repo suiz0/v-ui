@@ -31,6 +31,7 @@ var app = new Vue({
             menu2: false,
             menu3: false,
             'tree-ctrl': false,
+            'table': false,
             'master-details': false
         }
     },
