@@ -5,11 +5,14 @@ body, html{
 .view-container {
     display: flex;
     height: 100%;
+    overflow: hidden;
 }
 
 .view-content {
     flex: 1 1 auto;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .view--with-toolbar {

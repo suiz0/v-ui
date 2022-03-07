@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import BaseMixin from '../../mixins';
+import TableMixin from './mixins';
 import './table.css';
 
 const AppTable = Vue.component('app-table', {
-    mixins: [BaseMixin],
+    mixins: [BaseMixin, TableMixin],
     template: `<table :class="[stripped ? 'app-table--stripped' : null, 'app-table', 'table', variant ? 'table-' + variant: null]">
     <thead :class="[headersConfig.variant ? 'thead-' + headersConfig.variant: null]">
         <tr>
@@ -30,19 +31,6 @@ const AppTable = Vue.component('app-table', {
         </tr>
     </tbody>
 </table>`,
-    props: {
-        variant: {type: String, default: 'light'},
-        headers: {type: Array, default:()=> []},
-        stripped: {type: Boolean, default: true},
-        showActionColumn: {type: Boolean, default: false},
-        headersConfig: {type: Object, default: function() {
-            return {
-                variant: 'light'
-            }
-        }},
-        showIndexColumn: {type: Boolean, default: false},
-        rows: {type: Array, default: () => []}
-    },
     watch: {
         rows(newValues) {
             this.innerRows = this.parseRows(newValues);

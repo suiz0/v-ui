@@ -1,13 +1,12 @@
 .app-master-details {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex:1;
 }
 
 .app-master-details__header {
     display: flex;
     padding: 5px;
-    align-items: flex-end;
     padding-bottom: 1rem;
 }
 

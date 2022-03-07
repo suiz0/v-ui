@@ -8,20 +8,22 @@ import AppTree from './components/tree';
 import AppMasterDetails from './components/master-details';
 import AppAlert from './components/alert-message/alert-message';
 import AppTable from './components/table/app-table';
+import AppTableExtended from './components/table/app-table-extended';
 
 import './styles/layout.css';
 
 export default {
     AppScreen: Screen,
-    AppToolbar: AppToolbar,
-    AppForm: AppForm,
-    AppInput: AppInput,
+    AppToolbar,
+    AppForm,
+    AppInput,
     AppSidebar: Sidebar,
     AppSidebarItem: SidebarItem,
     AppSidebarExtended: SidebarExtended,
     AppSidebarButton: SidebarButton,
-    AppTree: AppTree,
-    AppMasterDetails: AppMasterDetails,
-    AppAlert: AppAlert,
-    AppTable
+    AppTree,
+    AppMasterDetails,
+    AppAlert,
+    AppTable,
+    AppTableExtended
 };

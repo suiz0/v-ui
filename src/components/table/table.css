@@ -9,3 +9,17 @@
 .app-table__row--selected td {
     color: rgb(24, 24, 24);
 }
+
+.app-table-extended--fluid {
+    flex: 1;
+}
+
+.app-table-extended__header {
+    display: flex;
+    padding: 5px;
+    padding-bottom: 1rem;
+}
+
+.app-table-extended__description {
+    margin-bottom: 0px;
+}
