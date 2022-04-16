@@ -20,7 +20,7 @@
                     </b-navbar-nav>
                 </b-collapse>
             </app-toolbar>
-            <div class="view-container">
+            <div class="view-content view-container">
                 <app-sidebar :is-collapsed="mainToolbar.collapsed" title="Menu App">
                     <template>
                         <div class="list-group">
@@ -111,7 +111,7 @@
                     <h2>Tree Control</h2>
                     <app-tree :items="tree"></app-tree>
                 </div>
-                <div v-show="view==='screen'" class="view-content">
+                <div v-show="view==='screen'" class="view-container view-content view--with-toolbar">
                     <h2>Screen Controls</h2>
                     <div style="width: 100%; height: 500px;">
                         <app-screen ref="screen" mode="new" @delete="screenDelete" @cancel="screenCancel" @save="screenSave" :model="User">
@@ -140,11 +140,11 @@
                     description = "Advanced Table description"
                     :show-action-column="true"
                     :headers="[{name:'col1', description: 'Column 1'}, {name:'col2', description: 'Column 2'}, {name:'col3', description: 'Column 3'}]" 
-                    :rows="[{col1: '1.0', col2: '1.1', col3: '1.2'}, {col1: '2.0', col2:'2.1', col3: '2.2'}, {col1: '3.0', col2:'3.1', col3: '3.2'}, {col1: '4.0', col2:'4.1', col3: '4.2'}]" 
+                    :rows="[{col1: '1.0', col2: '1.1', col3: '1.2'}, {col1: '2.0', col2:'2.1', col3: '2.2'}, {col1: '3.0', col2:'3.1', col3: '3.2'}, {col1: '4.0', col2:'4.1', col3: '4.2'},{col1: '5.0', col2:'5.1', col3: '5.2'}, {col1: '6.0', col2:'6.1', col3: '6.2'}]" 
                     ></app-table-extended>
                     
                 </div>
-                <div v-show="view==='master-details'" class="view-content">
+                <div v-show="view==='master-details'" class="view-content view-container">
                     <app-master-details
                     :master="[{id:1, name: 'Item 1', description: 'Item 1 Description'},
                     {id:2, name: 'Item 2', description: 'Item 2 Description'}
