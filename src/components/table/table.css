@@ -1,25 +1,29 @@
 .app-table--stripped tr:nth-child(even) {
-    background-color: rgba(0,0,0,0.03);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .app-table__row--selected td {
-    background-color: #d7d7d7;
+  background-color: #d7d7d7;
 }
 
 .app-table__row--selected td {
-    color: rgb(24, 24, 24);
+  color: rgb(24, 24, 24);
 }
 
 .app-table-extended--fluid {
-    flex: 1;
+  flex: 1;
 }
 
 .app-table-extended__header {
-    display: flex;
-    padding: 5px;
-    padding-bottom: 1rem;
+  display: flex;
+  padding: 5px;
+  padding-bottom: 1rem;
 }
 
 .app-table-extended__description {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.app-table__action-column {
+  width: 100px;
 }

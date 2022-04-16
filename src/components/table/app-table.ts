@@ -1,18 +1,18 @@
-import Vue from 'vue';
-import BaseMixin from '../../mixins';
-import TableMixin from './mixins';
-import './table.css';
+import Vue from "vue";
+import BaseMixin from "../../mixins";
+import TableMixin from "./mixins";
+import "./table.css";
 
-const AppTable = Vue.component('app-table', {
-    mixins: [BaseMixin, TableMixin],
-    template: `<table :class="[stripped ? 'app-table--stripped' : null, 'app-table', 'table', variant ? 'table-' + variant: null]">
+const AppTable = Vue.component("app-table", {
+  mixins: [BaseMixin, TableMixin],
+  template: `<table :class="[stripped ? 'app-table--stripped' : null, 'app-table', 'table', variant ? 'table-' + variant: null]">
     <thead :class="[headersConfig.variant ? 'thead-' + headersConfig.variant: null]">
         <tr>
             <th v-if="showIndexColumn">#</th>
             <th v-for="header in headers">
                 {{header.description}}
             </th>
-            <th class="col-1" v-if="showActionColumn">
+            <th class="app-table__action-column" v-if="showActionColumn">
                 Actions
             </th>
         </tr>
@@ -31,36 +31,36 @@ const AppTable = Vue.component('app-table', {
         </tr>
     </tbody>
 </table>`,
-    watch: {
-        rows(newValues) {
-            this.innerRows = this.parseRows(newValues);
-        }
+  watch: {
+    rows(newValues) {
+      this.innerRows = this.parseRows(newValues);
     },
-    data() {
+  },
+  data() {
+    return {
+      innerRows: [],
+    };
+  },
+  methods: {
+    deleteRecord($event, item) {
+      $event.stopPropagation();
+      this.$emit("delete", item.data);
+    },
+    parseRows(rows) {
+      return rows.map((currentValue) => {
         return {
-            innerRows: []
-        }
+          data: currentValue,
+          isSelected: false,
+        };
+      });
     },
-    methods: {
-        deleteRecord($event, item) {
-            $event.stopPropagation();
-            this.$emit('delete', item.data);
-        },
-        parseRows(rows) {
-            return rows.map((currentValue) => {
-                return {
-                    data: currentValue, 
-                    isSelected: false
-                };
-            });
-        },
-        rowClicked(row) {
-            row.isSelected = !row.isSelected;
-        }
+    rowClicked(row) {
+      row.isSelected = !row.isSelected;
     },
-    created() {
-        this.innerRows = this.parseRows(this.rows)
-    }
+  },
+  created() {
+    this.innerRows = this.parseRows(this.rows);
+  },
 });
 
 export default AppTable;
